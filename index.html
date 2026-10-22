@@ -36,25 +36,14 @@
       justify-content: space-between;
       gap: 1rem;
       box-shadow: 0 2px 12px rgba(0, 32, 96, 0.35);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
-    .brand {
-      display: flex;
-      flex-direction: column;
-      gap: 0.15rem;
-    }
-
-    .brand strong {
-      font-size: 1.15rem;
-      letter-spacing: 0.02em;
-      font-weight: 650;
-    }
-
-    .brand span {
-      font-size: 0.78rem;
-      opacity: 0.82;
-      font-weight: 400;
-    }
+    .brand { display: flex; flex-direction: column; gap: 0.15rem; }
+    .brand strong { font-size: 1.15rem; letter-spacing: 0.02em; font-weight: 650; }
+    .brand span { font-size: 0.78rem; opacity: 0.82; }
 
     .badge {
       font-size: 0.72rem;
@@ -71,22 +60,31 @@
       padding: 2rem 1.25rem 3.5rem;
     }
 
-    .intro {
-      margin-bottom: 1.75rem;
-    }
-
+    .intro { margin-bottom: 1.5rem; }
     .intro h1 {
       color: var(--navy);
       font-size: 1.55rem;
       font-weight: 700;
       margin-bottom: 0.4rem;
     }
+    .intro p { color: var(--muted); font-size: 0.95rem; max-width: 42rem; }
 
-    .intro p {
-      color: var(--muted);
-      font-size: 0.95rem;
-      max-width: 42rem;
+    .nav-jump {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1.75rem;
     }
+    .nav-jump a {
+      font-size: 0.72rem;
+      color: var(--navy);
+      text-decoration: none;
+      background: var(--white);
+      border: 1px solid #c8d4ea;
+      padding: 0.28rem 0.55rem;
+      border-radius: 999px;
+    }
+    .nav-jump a:hover { background: var(--steel); }
 
     .category {
       background: var(--white);
@@ -94,6 +92,7 @@
       border-radius: 14px;
       overflow: hidden;
       box-shadow: var(--card-shadow);
+      margin-bottom: 1.15rem;
     }
 
     .category-header {
@@ -105,49 +104,46 @@
       gap: 0.75rem;
       flex-wrap: wrap;
     }
-
     .category-header .index {
       font-size: 0.72rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       opacity: 0.75;
     }
+    .category-header h2 { font-size: 1.1rem; font-weight: 650; }
 
-    .category-header h2 {
-      font-size: 1.1rem;
-      font-weight: 650;
+    .category-body { padding: 1.1rem 1.25rem 1.35rem; }
+
+    .category-desc {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 1rem;
+      padding: 0.65rem 0.75rem;
+      background: var(--steel-soft);
+      border-left: 3px solid var(--steel);
+      border-radius: 0 8px 8px 0;
     }
 
-    .subitem {
-      padding: 1.35rem 1.25rem 1.5rem;
+    .subitem + .subitem {
+      margin-top: 1rem;
+      padding-top: 1rem;
       border-top: 1px solid var(--steel);
-      background: linear-gradient(180deg, var(--steel-soft), var(--white) 55%);
     }
 
     .subitem-label {
       display: block;
-      background: transparent;
       color: var(--navy);
       font-size: 1.25rem;
       font-weight: 700;
       letter-spacing: 0.01em;
-      padding: 0;
-      border-radius: 0;
-      margin-bottom: 1rem;
+      margin-bottom: 0.85rem;
     }
 
-    .subitem h3 {
-      color: var(--navy);
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 0.55rem;
-    }
-
-    .subitem .blurb {
-      color: var(--muted);
-      font-size: 0.92rem;
-      margin-bottom: 1.1rem;
-      max-width: 46rem;
+    .empty-note {
+      font-size: 0.78rem;
+      color: #8a97ad;
+      font-style: italic;
     }
 
     .attachments {
@@ -155,7 +151,6 @@
       flex-direction: column;
       gap: 0.65rem;
     }
-
     .attachments .caption {
       font-size: 0.78rem;
       color: var(--navy-mid);
@@ -178,12 +173,7 @@
       transition: background 0.15s ease, transform 0.15s ease;
       box-shadow: 0 4px 14px rgba(0, 32, 96, 0.22);
     }
-
-    a.download:hover {
-      background: var(--navy-mid);
-      transform: translateY(-1px);
-    }
-
+    a.download:hover { background: var(--navy-mid); transform: translateY(-1px); }
     a.download .icon {
       width: 1.35rem;
       height: 1.35rem;
@@ -192,29 +182,20 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       font-weight: 700;
       flex-shrink: 0;
     }
-
     a.download .meta {
       display: flex;
       flex-direction: column;
       gap: 0.05rem;
       min-width: 0;
     }
-
     a.download .meta small {
       font-weight: 400;
       font-size: 0.72rem;
       opacity: 0.8;
-    }
-
-    footer {
-      margin-top: 2rem;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.78rem;
     }
 
     @media (max-width: 560px) {
@@ -236,33 +217,139 @@
   <main>
     <section class="intro">
       <h1>产品资料货架</h1>
-      <p>按产品类别整理简要介绍与可下载附件。后续会陆续补全各类产品资料入口。</p>
+      <p>按产品类别整理简要介绍与可下载附件。</p>
     </section>
 
-    <section class="category" aria-labelledby="cat-cash">
+    <nav class="nav-jump" aria-label="类别跳转">
+      <a href="#cat-cash">现金管理</a>
+      <a href="#cat-fi">固定收益</a>
+      <a href="#cat-struct">结构化</a>
+      <a href="#cat-fund">基金</a>
+      <a href="#cat-equity">股票与权益</a>
+      <a href="#cat-alt">另类投资</a>
+      <a href="#cat-ins">保险与保障</a>
+      <a href="#cat-fx">外汇与流动性</a>
+    </nav>
+
+    <!-- 1 -->
+    <section class="category" id="cat-cash" aria-labelledby="h-cash">
       <div class="category-header">
         <span class="index">第一类</span>
-        <h2 id="cat-cash">现金管理类产品</h2>
+        <h2 id="h-cash">现金管理</h2>
       </div>
-
-      <article class="subitem" id="money-market">
-        <div class="subitem-label">货币基金</div>
-        <div class="attachments">
-          <div class="caption">附件下载</div>
-          <a class="download" href="downloads/Money-Market-Fund-List.pdf" download>
-            <span class="icon">PDF</span>
-            <span class="meta">
-              <span>Money Market Fund List（USD / HKD / RMB）</span>
-              <small>更新日期 2026.10</small>
-            </span>
-          </a>
-        </div>
-      </article>
+      <div class="category-body">
+        <p class="category-desc">货币基金、短存/通知存款、逆回购等，用于管理闲置流动性。货币基金单列于此；存款证与商业票据归入固定收益。</p>
+        <article class="subitem" id="money-market">
+          <div class="subitem-label">货币基金</div>
+          <div class="attachments">
+            <div class="caption">附件下载</div>
+            <a class="download" href="downloads/Money-Market-Fund-List.pdf" download>
+              <span class="icon">PDF</span>
+              <span class="meta">
+                <span>Money Market Fund List（USD / HKD / RMB）</span>
+                <small>更新日期 2026.10</small>
+              </span>
+            </a>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <footer>
-      页面色调对齐华泰国际产品对比表深蓝基调 · 数据仅供参考，投资前请查阅正式销售文件
-    </footer>
+    <!-- 2 -->
+    <section class="category" id="cat-fi" aria-labelledby="h-fi">
+      <div class="category-header">
+        <span class="index">第二类</span>
+        <h2 id="h-fi">固定收益 / 债券</h2>
+      </div>
+      <div class="category-body">
+        <p class="category-desc">政府债、投行债、信用债、短债组合，以及存款证（CD）与商业票据（CP）等短期固收工具；可再按期限、评级、币种细分。</p>
+        <article class="subitem" id="cd-cp">
+          <div class="subitem-label">存款证 / 商业票据（CD / CP）</div>
+          <div class="attachments">
+            <div class="caption">附件下载</div>
+            <a class="download" href="downloads/CD-CP-Tap-Quotes-2026-10-22.html" target="_blank" rel="noopener">
+              <span class="icon">HTML</span>
+              <span class="meta">
+                <span>CD / CP Tap Quotes</span>
+                <small>更新日期 2026.10</small>
+              </span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3 -->
+    <section class="category" id="cat-struct" aria-labelledby="h-struct">
+      <div class="category-header">
+        <span class="index">第三类</span>
+        <h2 id="h-struct">结构化产品</h2>
+      </div>
+      <div class="category-body">
+        <p class="category-desc">ELN、FCN、AQ/DQ、雪球、记息票据等；可按挂钩标的或保本/非保本进一步分类。</p>
+        <p class="empty-note">资料待补充</p>
+      </div>
+    </section>
+
+    <!-- 4 -->
+    <section class="category" id="cat-fund" aria-labelledby="h-fund">
+      <div class="category-header">
+        <span class="index">第四类</span>
+        <h2 id="h-fund">基金（公募 / 互认 / ETF）</h2>
+      </div>
+      <div class="category-body">
+        <p class="category-desc">股票、债券、混合、主题等公募与 ETF；与「货币基金」分开陈列，货币基金保留在现金管理类。</p>
+        <p class="empty-note">资料待补充</p>
+      </div>
+    </section>
+
+    <!-- 5 -->
+    <section class="category" id="cat-equity" aria-labelledby="h-equity">
+      <div class="category-header">
+        <span class="index">第五类</span>
+        <h2 id="h-equity">股票与权益</h2>
+      </div>
+      <div class="category-body">
+        <p class="category-desc">港股 / 美股 / A 股通交易、股票组合、跟投方案等（视经纪或投顾能力提供）。</p>
+        <p class="empty-note">资料待补充</p>
+      </div>
+    </section>
+
+    <!-- 6 -->
+    <section class="category" id="cat-alt" aria-labelledby="h-alt">
+      <div class="category-header">
+        <span class="index">第六类</span>
+        <h2 id="h-alt">另类投资</h2>
+      </div>
+      <div class="category-body">
+        <p class="category-desc">私募股权、私募信贷、对冲基金、房地产 / REITs 等；通常门槛较高、流动性较弱。</p>
+        <p class="empty-note">资料待补充</p>
+      </div>
+    </section>
+
+    <!-- 7 -->
+    <section class="category" id="cat-ins" aria-labelledby="h-ins">
+      <div class="category-header">
+        <span class="index">第七类</span>
+        <h2 id="h-ins">保险与保障</h2>
+      </div>
+      <div class="category-body">
+        <p class="category-desc">储蓄险、万用寿险、年金、保障型产品等；香港私人银行货架中常单独成类。</p>
+        <p class="empty-note">资料待补充</p>
+      </div>
+    </section>
+
+    <!-- 8 -->
+    <section class="category" id="cat-fx" aria-labelledby="h-fx">
+      <div class="category-header">
+        <span class="index">第八类</span>
+        <h2 id="h-fx">外汇与流动性工具</h2>
+      </div>
+      <div class="category-body">
+        <p class="category-desc">外汇兑换、远期 / 掉期、跨境资金安排等（视交易台能力提供）。</p>
+        <p class="empty-note">资料待补充</p>
+      </div>
+    </section>
   </main>
 </body>
 </html>
