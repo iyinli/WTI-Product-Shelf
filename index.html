@@ -3,10 +3,273 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WTI Product Shelf</title>
+  <title>WTI Product Shelf · 产品货架</title>
+  <style>
+    :root {
+      --navy: #002060;
+      --navy-deep: #001440;
+      --navy-mid: #1a3a7a;
+      --steel: #d9e1f2;
+      --steel-soft: #eef2f9;
+      --ink: #1a1a2e;
+      --muted: #5a6a85;
+      --white: #ffffff;
+      --card-shadow: 0 8px 28px rgba(0, 32, 96, 0.12);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: linear-gradient(180deg, var(--steel-soft) 0%, #f7f9fc 40%, #fff 100%);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .topbar {
+      background: linear-gradient(90deg, var(--navy-deep), var(--navy) 55%, var(--navy-mid));
+      color: var(--white);
+      padding: 1.1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      box-shadow: 0 2px 12px rgba(0, 32, 96, 0.35);
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .brand strong {
+      font-size: 1.15rem;
+      letter-spacing: 0.02em;
+      font-weight: 650;
+    }
+
+    .brand span {
+      font-size: 0.78rem;
+      opacity: 0.82;
+      font-weight: 400;
+    }
+
+    .badge {
+      font-size: 0.72rem;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    main {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 3.5rem;
+    }
+
+    .intro {
+      margin-bottom: 1.75rem;
+    }
+
+    .intro h1 {
+      color: var(--navy);
+      font-size: 1.55rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .intro p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 42rem;
+    }
+
+    .category {
+      background: var(--white);
+      border: 1px solid #c8d4ea;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+    }
+
+    .category-header {
+      background: var(--navy);
+      color: var(--white);
+      padding: 0.95rem 1.25rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .category-header .index {
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+    }
+
+    .category-header h2 {
+      font-size: 1.1rem;
+      font-weight: 650;
+    }
+
+    .subitem {
+      padding: 1.35rem 1.25rem 1.5rem;
+      border-top: 1px solid var(--steel);
+      background: linear-gradient(180deg, var(--steel-soft), var(--white) 55%);
+    }
+
+    .subitem-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: var(--steel);
+      color: var(--navy);
+      font-size: 0.72rem;
+      font-weight: 650;
+      letter-spacing: 0.04em;
+      padding: 0.28rem 0.65rem;
+      border-radius: 6px;
+      margin-bottom: 0.7rem;
+    }
+
+    .subitem h3 {
+      color: var(--navy);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.55rem;
+    }
+
+    .subitem .blurb {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 1.1rem;
+      max-width: 46rem;
+    }
+
+    .attachments {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .attachments .caption {
+      font-size: 0.78rem;
+      color: var(--navy-mid);
+      font-weight: 600;
+    }
+
+    a.download {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      width: fit-content;
+      max-width: 100%;
+      background: var(--navy);
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.7rem 1.05rem;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background 0.15s ease, transform 0.15s ease;
+      box-shadow: 0 4px 14px rgba(0, 32, 96, 0.22);
+    }
+
+    a.download:hover {
+      background: var(--navy-mid);
+      transform: translateY(-1px);
+    }
+
+    a.download .icon {
+      width: 1.35rem;
+      height: 1.35rem;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.18);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    a.download .meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.05rem;
+      min-width: 0;
+    }
+
+    a.download .meta small {
+      font-weight: 400;
+      font-size: 0.72rem;
+      opacity: 0.8;
+    }
+
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 560px) {
+      .topbar { flex-direction: column; align-items: flex-start; }
+      main { padding: 1.4rem 1rem 2.5rem; }
+      a.download { width: 100%; }
+    }
+  </style>
 </head>
 <body>
-  <h1>WTI Product Shelf</h1>
-  <p>占位页 — 后续在此汇总产品资料与下载地址。</p>
+  <header class="topbar">
+    <div class="brand">
+      <strong>WTI Product Shelf</strong>
+      <span>Wealthtech Innovation · 产品资料货架</span>
+    </div>
+    <div class="badge">内部产品资料汇总</div>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h1>产品资料货架</h1>
+      <p>按产品类别整理简要介绍与可下载附件。后续会陆续补全各类产品资料入口。</p>
+    </section>
+
+    <section class="category" aria-labelledby="cat-cash">
+      <div class="category-header">
+        <span class="index">第一类</span>
+        <h2 id="cat-cash">现金管理类产品</h2>
+      </div>
+
+      <article class="subitem" id="money-market">
+        <div class="subitem-label">子项 1 · 货币基金</div>
+        <h3>货币基金</h3>
+        <p class="blurb">
+          覆盖港股市场常见美元、港元及人民币货币市场基金的对比清单，含基本信息、历史表现、费用与投资门槛等要点，便于快速查阅与对外分享。
+          资料由 Wealthtech Innovation Department 整理，色调与正式产品对比表保持一致。
+        </p>
+        <div class="attachments">
+          <div class="caption">附件下载</div>
+          <a class="download" href="downloads/Money-Market-Fund-List.pdf" download>
+            <span class="icon">PDF</span>
+            <span class="meta">
+              <span>Money Market Fund List（USD / HKD / RMB）</span>
+              <small>点击下载 · 货币基金对比清单</small>
+            </span>
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      页面色调对齐华泰国际产品对比表深蓝基调 · 数据仅供参考，投资前请查阅正式销售文件
+    </footer>
+  </main>
 </body>
 </html>
