@@ -104,7 +104,7 @@
     .toc-group:focus-within > .toc-subs,
     .toc-subs li:hover > ul,
     .toc-subs li:focus-within > ul {
-      max-height: 28rem;
+      max-height: 52rem;
       opacity: 1;
     }
     .toc-subs a { font-weight: 450; color: #4a5a73; font-size: 0.74rem; }
@@ -193,6 +193,13 @@
     .fund-item { padding: 0.8rem 0.85rem; border-top: 1px solid var(--steel); }
     .fund-item h3 { color: var(--navy); font-size: 1rem; font-weight: 700; margin-bottom: 0.35rem; }
 
+
+    .issuer-note {
+      margin-top: 0.85rem;
+      color: #8a97ad;
+      font-size: 0.75rem;
+      line-height: 1.55;
+    }
     a.download {
       display: inline-flex;
       align-items: center;
@@ -295,6 +302,7 @@
               </tr>
             </tbody>
           </table>
+          <p class="issuer-note">对接超过 50 家交易对手，扩大询价覆盖，协助客户争取更具竞争力的市场报价。</p>
         </div>
       </section>
 
@@ -311,7 +319,25 @@
                 <small>客户或顾问可自行询价并完成交易</small>
               </div>
               <div class="track-b">
-                <p class="pending">可自行询价成交的产品清单待补充。</p>
+                <ul class="prod-list">
+                  <li id="prod-regular-fcn">FCN<span>Regular FCN</span></li>
+                  <li id="prod-stepdown-fcn">FCN<span>Stepdown FCN</span></li>
+                  <li id="prod-regular-eln">ELN<span>Regular ELN</span></li>
+                  <li id="prod-stepdown-scn">SCN<span>Stepdown SCN</span></li>
+                  <li id="prod-bull-sharkfin">SHARKFIN<span>Bull Sharkfin</span></li>
+                  <li id="prod-bear-sharkfin">SHARKFIN<span>Bear Sharkfin</span></li>
+                  <li id="prod-bull-bear-sharkfin">SHARKFIN<span>Bull Bear Sharkfin</span></li>
+                  <li id="prod-ko-eln">ELN<span>KO ELN</span></li>
+                  <li id="prod-worst-of-eln">ELN<span>Worst of ELN</span></li>
+                  <li id="prod-accumulator">AQ/DQ<span>Accumulator</span></li>
+                  <li id="prod-decumulator">AQ/DQ<span>Decumulator</span></li>
+                  <li id="prod-otc-vanilla">Vanilla Option<span>OTC Vanilla Option</span></li>
+                  <li id="prod-bullet-fcn">FCN<span>Bullet FCN</span></li>
+                  <li id="prod-regular-ben">BEN<span>Regular BEN</span></li>
+                  <li id="prod-wra">WRA<span>Worst of Range Accrual</span></li>
+                  <li id="prod-dcn">DCN<span>Digital Coupon Notes</span></li>
+                  <li id="prod-phoenix">PHOENIX<span>Phoenix Autocall</span></li>
+                </ul>
               </div>
             </article>
             <article class="track" id="struct-custom">
@@ -331,6 +357,7 @@
               </div>
             </article>
           </div>
+          <p class="issuer-note">支持华泰及更多第三方发行方 Autopricer 及线下产品定制（按照首字母大写排序）：Barclays, BBVA, BNP, CICC, Citi Bank, CLSA, Goldman Sachs, GTJA, HSBC, Huatai, JPM, Leonteq, Marex, Morgan Stanley, Nomura, Societe Generale, UBS。</p>
         </div>
       </section>
 
@@ -400,7 +427,28 @@
       <div class="toc-group">
         <a href="#struct">结构化产品</a>
         <ul class="toc-subs">
-          <li><a href="#struct-self">自主询报价及交易产品</a></li>
+          <li>
+            <a href="#struct-self">自主询报价及交易产品</a>
+            <ul>
+              <li><a href="#prod-regular-fcn">Regular FCN</a></li>
+              <li><a href="#prod-stepdown-fcn">Stepdown FCN</a></li>
+              <li><a href="#prod-regular-eln">Regular ELN</a></li>
+              <li><a href="#prod-stepdown-scn">Stepdown SCN</a></li>
+              <li><a href="#prod-bull-sharkfin">Bull Sharkfin</a></li>
+              <li><a href="#prod-bear-sharkfin">Bear Sharkfin</a></li>
+              <li><a href="#prod-bull-bear-sharkfin">Bull Bear Sharkfin</a></li>
+              <li><a href="#prod-ko-eln">KO ELN</a></li>
+              <li><a href="#prod-worst-of-eln">Worst of ELN</a></li>
+              <li><a href="#prod-accumulator">Accumulator</a></li>
+              <li><a href="#prod-decumulator">Decumulator</a></li>
+              <li><a href="#prod-otc-vanilla">OTC Vanilla Option</a></li>
+              <li><a href="#prod-bullet-fcn">Bullet FCN</a></li>
+              <li><a href="#prod-regular-ben">Regular BEN</a></li>
+              <li><a href="#prod-wra">Worst of Range Accrual</a></li>
+              <li><a href="#prod-dcn">Digital Coupon Notes</a></li>
+              <li><a href="#prod-phoenix">Phoenix Autocall</a></li>
+            </ul>
+          </li>
           <li>
             <a href="#struct-custom">可定制化产品解决方案</a>
             <ul>
