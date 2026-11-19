@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WTI Product Shelf · 产品货架</title>
+  <title>WTI Product Shelf · 综合投资方案</title>
   <style>
     :root {
       --navy: #002060;
@@ -14,11 +14,10 @@
       --ink: #1a1a2e;
       --muted: #5a6a85;
       --white: #ffffff;
-      --card-shadow: 0 8px 28px rgba(0, 32, 96, 0.12);
+      --line: #c8d4ea;
+      --shadow: 0 8px 28px rgba(0, 32, 96, 0.12);
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
       font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
       background: linear-gradient(180deg, var(--steel-soft) 0%, #f7f9fc 40%, #fff 100%);
@@ -26,7 +25,6 @@
       min-height: 100vh;
       line-height: 1.6;
     }
-
     .topbar {
       background: linear-gradient(90deg, var(--navy-deep), var(--navy) 55%, var(--navy-mid));
       color: var(--white);
@@ -40,62 +38,38 @@
       top: 0;
       z-index: 10;
     }
-
     .brand { display: flex; flex-direction: column; gap: 0.15rem; }
     .brand strong { font-size: 1.15rem; letter-spacing: 0.02em; font-weight: 650; }
     .brand span { font-size: 0.78rem; opacity: 0.82; }
-
     .badge {
       font-size: 0.72rem;
-      background: rgba(255, 255, 255, 0.14);
-      border: 1px solid rgba(255, 255, 255, 0.28);
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.28);
       padding: 0.35rem 0.7rem;
       border-radius: 999px;
       white-space: nowrap;
     }
-
-    main {
-      max-width: 920px;
-      margin: 0 auto;
-      padding: 2rem 1.25rem 3.5rem;
-    }
-
-    .intro { margin-bottom: 1.5rem; }
-    .intro h1 {
-      color: var(--navy);
-      font-size: 1.55rem;
-      font-weight: 700;
-      margin-bottom: 0.4rem;
-    }
-    .intro p { color: var(--muted); font-size: 0.95rem; max-width: 42rem; }
-
-    .nav-jump {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-bottom: 1.75rem;
-    }
+    main { max-width: 980px; margin: 0 auto; padding: 2rem 1.25rem 3.5rem; }
+    .intro { margin-bottom: 1.15rem; }
+    .intro h1 { color: var(--navy); font-size: 1.55rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .intro p { color: var(--muted); font-size: 0.92rem; max-width: 46rem; }
+    .nav-jump { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.6rem; }
     .nav-jump a {
-      font-size: 0.72rem;
-      color: var(--navy);
-      text-decoration: none;
-      background: var(--white);
-      border: 1px solid #c8d4ea;
-      padding: 0.28rem 0.55rem;
-      border-radius: 999px;
+      font-size: 0.75rem; color: var(--navy); text-decoration: none;
+      background: var(--white); border: 1px solid var(--line);
+      padding: 0.3rem 0.65rem; border-radius: 999px;
     }
     .nav-jump a:hover { background: var(--steel); }
 
-    .category {
+    .block {
       background: var(--white);
-      border: 1px solid #c8d4ea;
+      border: 1px solid var(--line);
       border-radius: 14px;
       overflow: hidden;
-      box-shadow: var(--card-shadow);
-      margin-bottom: 1.15rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 1.25rem;
     }
-
-    .category-header {
+    .block-header {
       background: var(--navy);
       color: var(--white);
       padding: 0.95rem 1.25rem;
@@ -104,17 +78,10 @@
       gap: 0.75rem;
       flex-wrap: wrap;
     }
-    .category-header .index {
-      font-size: 0.72rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      opacity: 0.75;
-    }
-    .category-header h2 { font-size: 1.1rem; font-weight: 650; }
-
-    .category-body { padding: 1.1rem 1.25rem 1.35rem; }
-
-    .category-desc {
+    .block-header .index { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.75; }
+    .block-header h2 { font-size: 1.12rem; font-weight: 650; }
+    .block-body { padding: 1.1rem 1.25rem 1.35rem; }
+    .block-note {
       font-size: 0.78rem;
       color: var(--muted);
       line-height: 1.55;
@@ -125,83 +92,126 @@
       border-radius: 0 8px 8px 0;
     }
 
-    .subitem + .subitem {
-      margin-top: 1rem;
-      padding-top: 1rem;
+    /* FI: table-like rows for indicative price / description */
+    .fi-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    .fi-table th {
+      background: var(--navy);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-align: left;
+      padding: 0.55rem 0.7rem;
+    }
+    .fi-table td {
+      border-bottom: 1px solid var(--steel);
+      padding: 0.85rem 0.7rem;
+      vertical-align: top;
+    }
+    .fi-table tr:last-child td { border-bottom: none; }
+    .fi-table .name { color: var(--navy); font-weight: 700; font-size: 0.95rem; width: 26%; }
+    .fi-table .sub { display: block; font-weight: 500; font-size: 0.75rem; color: var(--muted); margin-top: 0.15rem; }
+    .fi-table .desc { color: #3a4a63; font-size: 0.82rem; }
+    .pending { color: #8a97ad; font-style: italic; font-size: 0.78rem; }
+
+    /* Structured: two tracks */
+    .tracks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem;
+    }
+    .track {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .track-h {
+      padding: 0.65rem 0.85rem;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--navy);
+      background: var(--steel-soft);
+      border-bottom: 1px solid var(--steel);
+    }
+    .track-h small { display: block; font-weight: 500; color: var(--muted); font-size: 0.72rem; margin-top: 0.15rem; }
+    .track-b { padding: 0.8rem 0.85rem 0.95rem; }
+    .prod-list { list-style: none; }
+    .prod-list li {
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--steel-soft);
+      font-size: 0.86rem;
+      color: var(--navy);
+      font-weight: 650;
+    }
+    .prod-list li:last-child { border-bottom: none; }
+    .prod-list li span {
+      display: block;
+      font-weight: 400;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.12rem;
+    }
+
+    /* Funds: two pillars with nested types */
+    .pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem;
+    }
+    .pillar {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .pillar-h {
+      background: var(--navy);
+      color: #fff;
+      padding: 0.65rem 0.85rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+    .pillar-h small { display: block; font-weight: 400; opacity: 0.82; font-size: 0.72rem; margin-top: 0.12rem; }
+    .fund-item {
+      padding: 0.8rem 0.85rem;
       border-top: 1px solid var(--steel);
     }
-
-    .subitem-label {
-      display: block;
-      color: var(--navy);
-      font-size: 1.25rem;
-      font-weight: 700;
-      letter-spacing: 0.01em;
-      margin-bottom: 0.85rem;
-    }
-
-    .empty-note {
-      font-size: 0.78rem;
-      color: #8a97ad;
-      font-style: italic;
-    }
-
-    .attachments {
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-    }
-    .attachments .caption {
-      font-size: 0.78rem;
-      color: var(--navy-mid);
-      font-weight: 600;
-    }
+    .fund-item h3 { color: var(--navy); font-size: 1rem; font-weight: 700; margin-bottom: 0.35rem; }
 
     a.download {
       display: inline-flex;
       align-items: center;
-      gap: 0.65rem;
+      gap: 0.55rem;
       width: fit-content;
       max-width: 100%;
       background: var(--navy);
       color: var(--white);
       text-decoration: none;
-      padding: 0.7rem 1.05rem;
-      border-radius: 10px;
-      font-size: 0.9rem;
+      padding: 0.5rem 0.8rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
       font-weight: 600;
-      transition: background 0.15s ease, transform 0.15s ease;
-      box-shadow: 0 4px 14px rgba(0, 32, 96, 0.22);
+      box-shadow: 0 4px 14px rgba(0, 32, 96, 0.18);
     }
-    a.download:hover { background: var(--navy-mid); transform: translateY(-1px); }
+    a.download:hover { background: var(--navy-mid); }
     a.download .icon {
-      width: 1.35rem;
-      height: 1.35rem;
-      border-radius: 4px;
-      background: rgba(255, 255, 255, 0.18);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.65rem;
-      font-weight: 700;
-      flex-shrink: 0;
+      width: 1.2rem; height: 1.2rem; border-radius: 4px;
+      background: rgba(255,255,255,0.18);
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 0.58rem; font-weight: 700; flex-shrink: 0;
     }
-    a.download .meta {
-      display: flex;
-      flex-direction: column;
-      gap: 0.05rem;
-      min-width: 0;
-    }
-    a.download .meta small {
-      font-weight: 400;
-      font-size: 0.72rem;
-      opacity: 0.8;
-    }
+    a.download .meta { display: flex; flex-direction: column; gap: 0.02rem; min-width: 0; }
+    a.download .meta small { font-weight: 400; font-size: 0.68rem; opacity: 0.8; }
 
-    @media (max-width: 560px) {
-      .topbar { flex-direction: column; align-items: flex-start; }
-      main { padding: 1.4rem 1rem 2.5rem; }
+    @media (max-width: 720px) {
+      .tracks, .pillars { grid-template-columns: 1fr; }
+      .fi-table, .fi-table thead { display: block; }
+      .fi-table thead { display: none; }
+      .fi-table tr, .fi-table td { display: block; width: 100%; }
+      .fi-table td { border-bottom: none; padding: 0.25rem 0.4rem; }
+      .fi-table tr { border-bottom: 1px solid var(--steel); padding: 0.7rem 0; }
+      .fi-table .name { width: 100%; }
       a.download { width: 100%; }
+      .topbar { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -209,145 +219,161 @@
   <header class="topbar">
     <div class="brand">
       <strong>WTI Product Shelf</strong>
-      <span>Wealthtech Innovation · 产品资料货架</span>
+      <span>Wealthtech Innovation · 综合投资方案</span>
     </div>
     <div class="badge">内部产品资料汇总</div>
   </header>
 
   <main>
     <section class="intro">
-      <h1>产品资料货架</h1>
-      <p>按产品类别整理简要介绍与可下载附件。</p>
+      <h1>综合投资方案</h1>
+      <p>按「固收及类固收 / 结构化产品 / 基金」三类陈列。各类内部结构不同：固收展示示意性价格或产品描述，结构化按交易路径分列，基金先按 Allfunds 货架分层。</p>
     </section>
 
     <nav class="nav-jump" aria-label="类别跳转">
-      <a href="#cat-cash">现金管理</a>
-      <a href="#cat-fi">固定收益</a>
-      <a href="#cat-struct">结构化</a>
-      <a href="#cat-fund">基金</a>
-      <a href="#cat-equity">股票与权益</a>
-      <a href="#cat-alt">另类投资</a>
-      <a href="#cat-ins">保险与保障</a>
-      <a href="#cat-fx">外汇与流动性</a>
+      <a href="#fi">固收及类固收</a>
+      <a href="#struct">结构化产品</a>
+      <a href="#funds">基金</a>
     </nav>
 
-    <!-- 1 -->
-    <section class="category" id="cat-cash" aria-labelledby="h-cash">
-      <div class="category-header">
+    <!-- 1. Fixed income -->
+    <section class="block" id="fi">
+      <div class="block-header">
         <span class="index">第一类</span>
-        <h2 id="h-cash">现金管理</h2>
+        <h2>固收及类固收</h2>
       </div>
-      <div class="category-body">
-        <p class="category-desc">货币基金、短存/通知存款、逆回购等，用于管理闲置流动性。货币基金单列于此；存款证与商业票据归入固定收益。</p>
-        <article class="subitem" id="money-market">
-          <div class="subitem-label">货币基金</div>
-          <div class="attachments">
-            <div class="caption">附件下载</div>
-            <a class="download" href="downloads/Money-Market-Fund-List.pdf" download>
-              <span class="icon">PDF</span>
-              <span class="meta">
-                <span>Money Market Fund List（USD / HKD / RMB）</span>
-                <small>更新日期 2026.10</small>
-              </span>
-            </a>
-          </div>
-        </article>
+      <div class="block-body">
+        <p class="block-note">本类以产品线列表呈现，侧重示意性价格或产品描述，便于对照期限、信用与流动性。价格仅供参考，实际以成交时报价为准。</p>
+        <table class="fi-table">
+          <thead>
+            <tr>
+              <th>产品线</th>
+              <th>示意性价格 / 产品描述</th>
+              <th>资料</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="name">CD / CP / MTN<span class="sub">存款证、商业票据、中期票据</span></td>
+              <td class="desc">银行及企业短期至中期融资工具，有明确到期日与约定收益率，按发行人、期限、币种报价成交。不等同于存款，不受香港存款保障计划保障。</td>
+              <td>
+                <a class="download" href="downloads/CD-CP-Tap-Quotes-2026-10-22.html" target="_blank" rel="noopener">
+                  <span class="icon">HTML</span>
+                  <span class="meta">
+                    <span>CD / CP Tap Quotes</span>
+                    <small>更新日期 2026.10</small>
+                  </span>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td class="name">国债<span class="sub">主权债</span></td>
+              <td class="desc">主权政府发行的债券，通常用于利率配置与高流动性底仓。示意性价格待补充。</td>
+              <td><span class="pending">资料待补充</span></td>
+            </tr>
+            <tr>
+              <td class="name">中资美元债<span class="sub">Chinese USD Bonds</span></td>
+              <td class="desc">中资发行人在离岸市场发行的美元债券，覆盖不同行业与信用层级。示意性价格待补充。</td>
+              <td><span class="pending">资料待补充</span></td>
+            </tr>
+            <tr>
+              <td class="name">企业债<span class="sub">投资级 / 投机级（如有）</span></td>
+              <td class="desc">公司信用债。投资级侧重票息与稳健信用；投机级（如有）侧重更高收益与更高信用风险。示意性价格待补充。</td>
+              <td><span class="pending">资料待补充</span></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
-    <!-- 2 -->
-    <section class="category" id="cat-fi" aria-labelledby="h-fi">
-      <div class="category-header">
+    <!-- 2. Structured -->
+    <section class="block" id="struct">
+      <div class="block-header">
         <span class="index">第二类</span>
-        <h2 id="h-fi">固定收益 / 债券</h2>
+        <h2>结构化产品</h2>
       </div>
-      <div class="category-body">
-        <p class="category-desc">政府债、投行债、信用债、短债组合，以及存款证（CD）与商业票据（CP）等短期固收工具；可再按期限、评级、币种细分。</p>
-        <article class="subitem" id="cd-cp">
-          <div class="subitem-label">存款证 / 商业票据（CD / CP）</div>
-          <div class="attachments">
-            <div class="caption">附件下载</div>
-            <a class="download" href="downloads/CD-CP-Tap-Quotes-2026-10-22.html" target="_blank" rel="noopener">
-              <span class="icon">HTML</span>
-              <span class="meta">
-                <span>CD / CP Tap Quotes</span>
-                <small>更新日期 2026.10</small>
-              </span>
-            </a>
-          </div>
-        </article>
+      <div class="block-body">
+        <p class="block-note">本类按交易路径分两轨：可自主询价成交的产品，与需人工协助报价的可定制方案。后者下列示现有解决方案类型。</p>
+        <div class="tracks">
+          <article class="track">
+            <div class="track-h">
+              自主询报价及交易产品
+              <small>客户或顾问可自行询价并完成交易</small>
+            </div>
+            <div class="track-b">
+              <p class="pending">可自行询价成交的产品清单待补充。</p>
+            </div>
+          </article>
+          <article class="track">
+            <div class="track-h">
+              其他可定制化产品解决方案
+              <small>需人工协助报价</small>
+            </div>
+            <div class="track-b">
+              <ul class="prod-list">
+                <li>Express FCN<span>快速询价的固定票息票据</span></li>
+                <li>FX Digital Note<span>外汇二元收益票据</span></li>
+                <li>FX Dual Currency Note<span>双币种票据</span></li>
+                <li>Reverse Convertible Note on US Treasury<span>挂钩美国国债的反向可转换票据</span></li>
+                <li>FX Participation Note<span>USDCNH、USDHKD Participation USD Note</span></li>
+                <li>PB Callable Linear Zero Coupon Note<span>私人银行可赎回线性零息票据</span></li>
+              </ul>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
-    <!-- 3 -->
-    <section class="category" id="cat-struct" aria-labelledby="h-struct">
-      <div class="category-header">
+    <!-- 3. Funds -->
+    <section class="block" id="funds">
+      <div class="block-header">
         <span class="index">第三类</span>
-        <h2 id="h-struct">结构化产品</h2>
+        <h2>基金</h2>
       </div>
-      <div class="category-body">
-        <p class="category-desc">ELN、FCN、AQ/DQ、雪球、记息票据等；可按挂钩标的或保本/非保本进一步分类。</p>
-        <p class="empty-note">资料待补充</p>
-      </div>
-    </section>
-
-    <!-- 4 -->
-    <section class="category" id="cat-fund" aria-labelledby="h-fund">
-      <div class="category-header">
-        <span class="index">第四类</span>
-        <h2 id="h-fund">基金（公募 / 互认 / ETF）</h2>
-      </div>
-      <div class="category-body">
-        <p class="category-desc">股票、债券、混合、主题等公募与 ETF；与「货币基金」分开陈列，货币基金保留在现金管理类。</p>
-        <p class="empty-note">资料待补充</p>
-      </div>
-    </section>
-
-    <!-- 5 -->
-    <section class="category" id="cat-equity" aria-labelledby="h-equity">
-      <div class="category-header">
-        <span class="index">第五类</span>
-        <h2 id="h-equity">股票与权益</h2>
-      </div>
-      <div class="category-body">
-        <p class="category-desc">港股 / 美股 / A 股通交易、股票组合、跟投方案等（视经纪或投顾能力提供）。</p>
-        <p class="empty-note">资料待补充</p>
-      </div>
-    </section>
-
-    <!-- 6 -->
-    <section class="category" id="cat-alt" aria-labelledby="h-alt">
-      <div class="category-header">
-        <span class="index">第六类</span>
-        <h2 id="h-alt">另类投资</h2>
-      </div>
-      <div class="category-body">
-        <p class="category-desc">私募股权、私募信贷、对冲基金、房地产 / REITs 等；通常门槛较高、流动性较弱。</p>
-        <p class="empty-note">资料待补充</p>
-      </div>
-    </section>
-
-    <!-- 7 -->
-    <section class="category" id="cat-ins" aria-labelledby="h-ins">
-      <div class="category-header">
-        <span class="index">第七类</span>
-        <h2 id="h-ins">保险与保障</h2>
-      </div>
-      <div class="category-body">
-        <p class="category-desc">储蓄险、万用寿险、年金、保障型产品等；香港私人银行货架中常单独成类。</p>
-        <p class="empty-note">资料待补充</p>
-      </div>
-    </section>
-
-    <!-- 8 -->
-    <section class="category" id="cat-fx" aria-labelledby="h-fx">
-      <div class="category-header">
-        <span class="index">第八类</span>
-        <h2 id="h-fx">外汇与流动性工具</h2>
-      </div>
-      <div class="category-body">
-        <p class="category-desc">外汇兑换、远期 / 掉期、跨境资金安排等（视交易台能力提供）。</p>
-        <p class="empty-note">资料待补充</p>
+      <div class="block-body">
+        <p class="block-note">本类先以 Allfunds 货架为起点，按公募 / 私募分层，再按策略类型陈列。货币基金归入公募货币型，不再单列现金管理大类。</p>
+        <div class="pillars">
+          <article class="pillar">
+            <div class="pillar-h">公募<small>先覆盖 Allfunds 平台可售基金</small></div>
+            <div class="fund-item">
+              <h3>货币型</h3>
+              <a class="download" href="downloads/Money-Market-Fund-List.pdf" download>
+                <span class="icon">PDF</span>
+                <span class="meta">
+                  <span>Money Market Fund List（USD / HKD / RMB）</span>
+                  <small>更新日期 2026.10</small>
+                </span>
+              </a>
+            </div>
+            <div class="fund-item">
+              <h3>股票</h3>
+              <p class="pending">Allfunds 股票型基金清单待补充</p>
+            </div>
+            <div class="fund-item">
+              <h3>债券</h3>
+              <p class="pending">Allfunds 债券型基金清单待补充</p>
+            </div>
+            <div class="fund-item">
+              <h3>混合及另类</h3>
+              <p class="pending">Allfunds 混合及另类基金清单待补充</p>
+            </div>
+          </article>
+          <article class="pillar">
+            <div class="pillar-h">私募<small>对冲基金、私募股权及其他私募策略</small></div>
+            <div class="fund-item">
+              <h3>Hedge Fund</h3>
+              <p class="pending">资料待补充</p>
+            </div>
+            <div class="fund-item">
+              <h3>Private Equity Fund</h3>
+              <p class="pending">资料待补充</p>
+            </div>
+            <div class="fund-item">
+              <h3>其他私募策略</h3>
+              <p class="pending">后续按实际可售策略增补</p>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
   </main>
