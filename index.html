@@ -18,6 +18,8 @@
       --shadow: 0 8px 28px rgba(0, 32, 96, 0.12);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    [id] { scroll-margin-top: 2.6rem; }
     body {
       font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
       background: linear-gradient(180deg, var(--steel-soft) 0%, #f7f9fc 40%, #fff 100%);
@@ -36,7 +38,7 @@
       box-shadow: 0 1px 8px rgba(0, 32, 96, 0.28);
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 20;
     }
     .brand { display: flex; flex-direction: row; align-items: baseline; gap: 0.65rem; }
     .brand strong { font-size: 0.92rem; letter-spacing: 0.02em; font-weight: 650; }
@@ -49,16 +51,64 @@
       border-radius: 999px;
       white-space: nowrap;
     }
-    main { max-width: 980px; margin: 0 auto; padding: 0.9rem 1.25rem 2.5rem; }
+    .page {
+      display: grid;
+      grid-template-columns: minmax(0, 980px) 220px;
+      gap: 1.6rem;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0.9rem 1.25rem 2.5rem;
+      align-items: start;
+    }
     .intro { margin-bottom: 0.7rem; }
     .intro p { color: var(--muted); font-size: 0.82rem; }
-    .nav-jump { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.85rem; }
-    .nav-jump a {
-      font-size: 0.75rem; color: var(--navy); text-decoration: none;
-      background: var(--white); border: 1px solid var(--line);
-      padding: 0.3rem 0.65rem; border-radius: 999px;
+
+    .toc {
+      position: sticky;
+      top: 2.5rem;
+      padding: 0.35rem 0 0.5rem 0.7rem;
+      border-left: 1px solid var(--line);
+      font-size: 0.78rem;
     }
-    .nav-jump a:hover { background: var(--steel); }
+    .toc-label {
+      font-size: 0.66rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #8a97ad;
+      margin-bottom: 0.35rem;
+    }
+    .toc a {
+      color: var(--muted);
+      text-decoration: none;
+      display: block;
+      padding: 0.18rem 0.2rem;
+      border-radius: 4px;
+      line-height: 1.4;
+    }
+    .toc a:hover { color: var(--navy); background: var(--steel-soft); }
+    .toc-group > a {
+      color: var(--navy);
+      font-weight: 650;
+      font-size: 0.8rem;
+    }
+    .toc-subs, .toc-subs ul {
+      list-style: none;
+      margin: 0;
+      padding: 0 0 0 0.7rem;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.18s ease, opacity 0.18s ease;
+    }
+    .toc-group:hover > .toc-subs,
+    .toc-group:focus-within > .toc-subs,
+    .toc-subs li:hover > ul,
+    .toc-subs li:focus-within > ul {
+      max-height: 28rem;
+      opacity: 1;
+    }
+    .toc-subs a { font-weight: 450; color: #4a5a73; font-size: 0.74rem; }
+    .toc-subs ul a { font-size: 0.71rem; color: #6a7a93; }
 
     .block {
       background: var(--white);
@@ -81,7 +131,6 @@
     .block-header h2 { font-size: 0.92rem; font-weight: 650; }
     .block-body { padding: 0.85rem 1rem 1rem; }
 
-    /* FI: table-like rows for indicative price / description */
     .fi-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
     .fi-table th {
       background: var(--navy);
@@ -102,18 +151,8 @@
     .fi-table .desc { color: #3a4a63; font-size: 0.82rem; }
     .pending { color: #8a97ad; font-style: italic; font-size: 0.78rem; }
 
-    /* Structured: two tracks */
-    .tracks {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.9rem;
-    }
-    .track {
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      overflow: hidden;
-      background: #fff;
-    }
+    .tracks { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+    .track { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: #fff; }
     .track-h {
       padding: 0.65rem 0.85rem;
       font-size: 0.88rem;
@@ -141,17 +180,8 @@
       margin-top: 0.12rem;
     }
 
-    /* Funds: two pillars with nested types */
-    .pillars {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.9rem;
-    }
-    .pillar {
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      overflow: hidden;
-    }
+    .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+    .pillar { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
     .pillar-h {
       background: var(--navy);
       color: #fff;
@@ -160,10 +190,7 @@
       font-weight: 700;
     }
     .pillar-h small { display: block; font-weight: 400; opacity: 0.82; font-size: 0.72rem; margin-top: 0.12rem; }
-    .fund-item {
-      padding: 0.8rem 0.85rem;
-      border-top: 1px solid var(--steel);
-    }
+    .fund-item { padding: 0.8rem 0.85rem; border-top: 1px solid var(--steel); }
     .fund-item h3 { color: var(--navy); font-size: 1rem; font-weight: 700; margin-bottom: 0.35rem; }
 
     a.download {
@@ -191,11 +218,15 @@
     a.download .meta { display: flex; flex-direction: column; gap: 0.02rem; min-width: 0; }
     a.download .meta small { font-weight: 400; font-size: 0.68rem; opacity: 0.8; }
 
+    @media (max-width: 980px) {
+      .page { grid-template-columns: 1fr; }
+      .toc { position: static; border-left: none; border-bottom: 1px solid var(--line); padding: 0 0 0.7rem; margin-bottom: 0.8rem; order: -1; }
+      .toc-subs, .toc-subs ul { max-height: none; opacity: 1; }
+    }
     @media (max-width: 720px) {
       .tracks, .pillars { grid-template-columns: 1fr; }
-      .fi-table, .fi-table thead { display: block; }
       .fi-table thead { display: none; }
-      .fi-table tr, .fi-table td { display: block; width: 100%; }
+      .fi-table, .fi-table tr, .fi-table td { display: block; width: 100%; }
       .fi-table td { border-bottom: none; padding: 0.25rem 0.4rem; }
       .fi-table tr { border-bottom: 1px solid var(--steel); padding: 0.7rem 0; }
       .fi-table .name { width: 100%; }
@@ -213,154 +244,199 @@
     <div class="badge">内部产品资料汇总</div>
   </header>
 
-  <main>
-    <section class="intro">
-      <p>价格仅供参考，实际以成交时报价为准。</p>
-    </section>
+  <div class="page">
+    <main>
+      <section class="intro">
+        <p>价格仅供参考，实际以成交时报价为准。</p>
+      </section>
 
-    <nav class="nav-jump" aria-label="类别跳转">
-      <a href="#fi">固收及类固收</a>
-      <a href="#struct">结构化产品</a>
-      <a href="#funds">基金</a>
-    </nav>
+      <section class="block" id="fi">
+        <div class="block-header">
+          <span class="index">第一类</span>
+          <h2>固收及类固收</h2>
+        </div>
+        <div class="block-body">
+          <table class="fi-table">
+            <thead>
+              <tr>
+                <th>产品线</th>
+                <th>示意性价格 / 产品描述</th>
+                <th>资料</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="fi-cd">
+                <td class="name">CD / CP / MTN<span class="sub">存款证、商业票据、中期票据</span></td>
+                <td class="desc">银行及企业短期至中期融资工具，有明确到期日与约定收益率，按发行人、期限、币种报价成交。不等同于存款，不受香港存款保障计划保障。</td>
+                <td>
+                  <a class="download" href="downloads/CD-CP-Tap-Quotes-2026-10-22.html" target="_blank" rel="noopener">
+                    <span class="icon">HTML</span>
+                    <span class="meta">
+                      <span>CD / CP Tap Quotes</span>
+                      <small>更新日期 2026.10</small>
+                    </span>
+                  </a>
+                </td>
+              </tr>
+              <tr id="fi-gov">
+                <td class="name">国债<span class="sub">主权债</span></td>
+                <td class="desc">主权政府发行的债券，通常用于利率配置与高流动性底仓。示意性价格待补充。</td>
+                <td><span class="pending">资料待补充</span></td>
+              </tr>
+              <tr id="fi-cnyusd">
+                <td class="name">中资美元债<span class="sub">Chinese USD Bonds</span></td>
+                <td class="desc">中资发行人在离岸市场发行的美元债券，覆盖不同行业与信用层级。示意性价格待补充。</td>
+                <td><span class="pending">资料待补充</span></td>
+              </tr>
+              <tr id="fi-corp">
+                <td class="name">企业债<span class="sub">投资级 / 投机级（如有）</span></td>
+                <td class="desc">公司信用债。投资级侧重票息与稳健信用；投机级（如有）侧重更高收益与更高信用风险。示意性价格待补充。</td>
+                <td><span class="pending">资料待补充</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-    <!-- 1. Fixed income -->
-    <section class="block" id="fi">
-      <div class="block-header">
-        <span class="index">第一类</span>
-        <h2>固收及类固收</h2>
-      </div>
-      <div class="block-body">
-<table class="fi-table">
-          <thead>
-            <tr>
-              <th>产品线</th>
-              <th>示意性价格 / 产品描述</th>
-              <th>资料</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="name">CD / CP / MTN<span class="sub">存款证、商业票据、中期票据</span></td>
-              <td class="desc">银行及企业短期至中期融资工具，有明确到期日与约定收益率，按发行人、期限、币种报价成交。不等同于存款，不受香港存款保障计划保障。</td>
-              <td>
-                <a class="download" href="downloads/CD-CP-Tap-Quotes-2026-10-22.html" target="_blank" rel="noopener">
-                  <span class="icon">HTML</span>
+      <section class="block" id="struct">
+        <div class="block-header">
+          <span class="index">第二类</span>
+          <h2>结构化产品</h2>
+        </div>
+        <div class="block-body">
+          <div class="tracks">
+            <article class="track" id="struct-self">
+              <div class="track-h">
+                自主询报价及交易产品
+                <small>客户或顾问可自行询价并完成交易</small>
+              </div>
+              <div class="track-b">
+                <p class="pending">可自行询价成交的产品清单待补充。</p>
+              </div>
+            </article>
+            <article class="track" id="struct-custom">
+              <div class="track-h">
+                其他可定制化产品解决方案
+                <small>需人工协助报价</small>
+              </div>
+              <div class="track-b">
+                <ul class="prod-list">
+                  <li id="prod-express-fcn">Express FCN<span>快速询价的固定票息票据</span></li>
+                  <li id="prod-fx-digital">FX Digital Note<span>外汇二元收益票据</span></li>
+                  <li id="prod-fx-dcn">FX Dual Currency Note<span>双币种票据</span></li>
+                  <li id="prod-rcn-ust">Reverse Convertible Note on US Treasury<span>挂钩美国国债的反向可转换票据</span></li>
+                  <li id="prod-fx-participation">FX Participation Note<span>USDCNH、USDHKD Participation USD Note</span></li>
+                  <li id="prod-pb-callable">PB Callable Linear Zero Coupon Note<span>私人银行可赎回线性零息票据</span></li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="funds">
+        <div class="block-header">
+          <span class="index">第三类</span>
+          <h2>基金</h2>
+        </div>
+        <div class="block-body">
+          <div class="pillars">
+            <article class="pillar" id="funds-public">
+              <div class="pillar-h">公募<small>先覆盖 Allfunds 平台可售基金</small></div>
+              <div class="fund-item" id="funds-mmf">
+                <h3>货币型</h3>
+                <a class="download" href="downloads/Money-Market-Fund-List.pdf" download>
+                  <span class="icon">PDF</span>
                   <span class="meta">
-                    <span>CD / CP Tap Quotes</span>
+                    <span>Money Market Fund List（USD / HKD / RMB）</span>
                     <small>更新日期 2026.10</small>
                   </span>
                 </a>
-              </td>
-            </tr>
-            <tr>
-              <td class="name">国债<span class="sub">主权债</span></td>
-              <td class="desc">主权政府发行的债券，通常用于利率配置与高流动性底仓。示意性价格待补充。</td>
-              <td><span class="pending">资料待补充</span></td>
-            </tr>
-            <tr>
-              <td class="name">中资美元债<span class="sub">Chinese USD Bonds</span></td>
-              <td class="desc">中资发行人在离岸市场发行的美元债券，覆盖不同行业与信用层级。示意性价格待补充。</td>
-              <td><span class="pending">资料待补充</span></td>
-            </tr>
-            <tr>
-              <td class="name">企业债<span class="sub">投资级 / 投机级（如有）</span></td>
-              <td class="desc">公司信用债。投资级侧重票息与稳健信用；投机级（如有）侧重更高收益与更高信用风险。示意性价格待补充。</td>
-              <td><span class="pending">资料待补充</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- 2. Structured -->
-    <section class="block" id="struct">
-      <div class="block-header">
-        <span class="index">第二类</span>
-        <h2>结构化产品</h2>
-      </div>
-      <div class="block-body">
-<div class="tracks">
-          <article class="track">
-            <div class="track-h">
-              自主询报价及交易产品
-              <small>客户或顾问可自行询价并完成交易</small>
-            </div>
-            <div class="track-b">
-              <p class="pending">可自行询价成交的产品清单待补充。</p>
-            </div>
-          </article>
-          <article class="track">
-            <div class="track-h">
-              其他可定制化产品解决方案
-              <small>需人工协助报价</small>
-            </div>
-            <div class="track-b">
-              <ul class="prod-list">
-                <li>Express FCN<span>快速询价的固定票息票据</span></li>
-                <li>FX Digital Note<span>外汇二元收益票据</span></li>
-                <li>FX Dual Currency Note<span>双币种票据</span></li>
-                <li>Reverse Convertible Note on US Treasury<span>挂钩美国国债的反向可转换票据</span></li>
-                <li>FX Participation Note<span>USDCNH、USDHKD Participation USD Note</span></li>
-                <li>PB Callable Linear Zero Coupon Note<span>私人银行可赎回线性零息票据</span></li>
-              </ul>
-            </div>
-          </article>
+              </div>
+              <div class="fund-item" id="funds-equity">
+                <h3>股票</h3>
+                <p class="pending">Allfunds 股票型基金清单待补充</p>
+              </div>
+              <div class="fund-item" id="funds-bond">
+                <h3>债券</h3>
+                <p class="pending">Allfunds 债券型基金清单待补充</p>
+              </div>
+              <div class="fund-item" id="funds-hybrid">
+                <h3>混合及另类</h3>
+                <p class="pending">Allfunds 混合及另类基金清单待补充</p>
+              </div>
+            </article>
+            <article class="pillar" id="funds-private">
+              <div class="pillar-h">私募<small>对冲基金、私募股权及其他私募策略</small></div>
+              <div class="fund-item" id="funds-hf">
+                <h3>Hedge Fund</h3>
+                <p class="pending">资料待补充</p>
+              </div>
+              <div class="fund-item" id="funds-pe">
+                <h3>Private Equity Fund</h3>
+                <p class="pending">资料待补充</p>
+              </div>
+              <div class="fund-item" id="funds-other">
+                <h3>其他私募策略</h3>
+                <p class="pending">后续按实际可售策略增补</p>
+              </div>
+            </article>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <!-- 3. Funds -->
-    <section class="block" id="funds">
-      <div class="block-header">
-        <span class="index">第三类</span>
-        <h2>基金</h2>
+    <nav class="toc" aria-label="目录">
+      <div class="toc-label">目录</div>
+      <div class="toc-group">
+        <a href="#fi">固收及类固收</a>
+        <ul class="toc-subs">
+          <li><a href="#fi-cd">CD / CP / MTN</a></li>
+          <li><a href="#fi-gov">国债</a></li>
+          <li><a href="#fi-cnyusd">中资美元债</a></li>
+          <li><a href="#fi-corp">企业债</a></li>
+        </ul>
       </div>
-      <div class="block-body">
-<div class="pillars">
-          <article class="pillar">
-            <div class="pillar-h">公募<small>先覆盖 Allfunds 平台可售基金</small></div>
-            <div class="fund-item">
-              <h3>货币型</h3>
-              <a class="download" href="downloads/Money-Market-Fund-List.pdf" download>
-                <span class="icon">PDF</span>
-                <span class="meta">
-                  <span>Money Market Fund List（USD / HKD / RMB）</span>
-                  <small>更新日期 2026.10</small>
-                </span>
-              </a>
-            </div>
-            <div class="fund-item">
-              <h3>股票</h3>
-              <p class="pending">Allfunds 股票型基金清单待补充</p>
-            </div>
-            <div class="fund-item">
-              <h3>债券</h3>
-              <p class="pending">Allfunds 债券型基金清单待补充</p>
-            </div>
-            <div class="fund-item">
-              <h3>混合及另类</h3>
-              <p class="pending">Allfunds 混合及另类基金清单待补充</p>
-            </div>
-          </article>
-          <article class="pillar">
-            <div class="pillar-h">私募<small>对冲基金、私募股权及其他私募策略</small></div>
-            <div class="fund-item">
-              <h3>Hedge Fund</h3>
-              <p class="pending">资料待补充</p>
-            </div>
-            <div class="fund-item">
-              <h3>Private Equity Fund</h3>
-              <p class="pending">资料待补充</p>
-            </div>
-            <div class="fund-item">
-              <h3>其他私募策略</h3>
-              <p class="pending">后续按实际可售策略增补</p>
-            </div>
-          </article>
-        </div>
+      <div class="toc-group">
+        <a href="#struct">结构化产品</a>
+        <ul class="toc-subs">
+          <li><a href="#struct-self">自主询报价及交易产品</a></li>
+          <li>
+            <a href="#struct-custom">可定制化产品解决方案</a>
+            <ul>
+              <li><a href="#prod-express-fcn">Express FCN</a></li>
+              <li><a href="#prod-fx-digital">FX Digital Note</a></li>
+              <li><a href="#prod-fx-dcn">FX Dual Currency Note</a></li>
+              <li><a href="#prod-rcn-ust">Reverse Convertible Note on US Treasury</a></li>
+              <li><a href="#prod-fx-participation">FX Participation Note</a></li>
+              <li><a href="#prod-pb-callable">PB Callable Linear Zero Coupon Note</a></li>
+            </ul>
+          </li>
+        </ul>
       </div>
-    </section>
-  </main>
+      <div class="toc-group">
+        <a href="#funds">基金</a>
+        <ul class="toc-subs">
+          <li>
+            <a href="#funds-public">公募</a>
+            <ul>
+              <li><a href="#funds-mmf">货币型</a></li>
+              <li><a href="#funds-equity">股票</a></li>
+              <li><a href="#funds-bond">债券</a></li>
+              <li><a href="#funds-hybrid">混合及另类</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#funds-private">私募</a>
+            <ul>
+              <li><a href="#funds-hf">Hedge Fund</a></li>
+              <li><a href="#funds-pe">Private Equity Fund</a></li>
+              <li><a href="#funds-other">其他私募策略</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
 </body>
 </html>
