@@ -19,7 +19,7 @@
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    [id] { scroll-margin-top: 2.6rem; }
+    [id] { scroll-margin-top: 5.4rem; }
     body {
       font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
       background: linear-gradient(180deg, var(--steel-soft) 0%, #f7f9fc 40%, #fff 100%);
@@ -36,9 +36,6 @@
       justify-content: space-between;
       gap: 0.75rem;
       box-shadow: 0 1px 8px rgba(0, 32, 96, 0.28);
-      position: sticky;
-      top: 0;
-      z-index: 20;
     }
     .brand { display: flex; flex-direction: row; align-items: baseline; gap: 0.65rem; }
     .brand strong { font-size: 0.92rem; letter-spacing: 0.02em; font-weight: 650; }
@@ -51,64 +48,39 @@
       border-radius: 999px;
       white-space: nowrap;
     }
+    .site-head {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
     .page {
-      display: grid;
-      grid-template-columns: 220px minmax(0, 980px);
-      gap: 1.6rem;
-      max-width: 1240px;
+      max-width: 1080px;
       margin: 0 auto;
       padding: 0.9rem 1.25rem 2.5rem;
-      align-items: start;
     }
     .intro { margin-bottom: 0.7rem; }
     .intro p { color: var(--muted); font-size: 0.82rem; }
 
     .toc {
-      position: sticky;
-      top: 2.5rem;
-      padding: 0.35rem 0.7rem 0.5rem 0;
-      border-right: 1px solid var(--line);
-      font-size: 0.78rem;
-    }
-    .toc-label {
-      font-size: 0.66rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: #8a97ad;
-      margin-bottom: 0.35rem;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.15rem;
+      padding: 0 1.15rem;
+      box-shadow: 0 2px 8px rgba(0, 32, 96, 0.06);
     }
     .toc a {
-      color: var(--muted);
-      text-decoration: none;
-      display: block;
-      padding: 0.18rem 0.2rem;
-      border-radius: 4px;
-      line-height: 1.4;
-    }
-    .toc a:hover { color: var(--navy); background: var(--steel-soft); }
-    .toc-group > a {
       color: var(--navy);
+      text-decoration: none;
+      font-size: 0.82rem;
       font-weight: 650;
-      font-size: 0.8rem;
+      padding: 0.48rem 1.05rem;
+      border-bottom: 2px solid transparent;
+      line-height: 1.3;
     }
-    .toc-subs, .toc-subs ul {
-      list-style: none;
-      margin: 0;
-      padding: 0 0 0 0.7rem;
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      transition: max-height 0.18s ease, opacity 0.18s ease;
-    }
-    .toc-group:hover > .toc-subs,
-    .toc-group:focus-within > .toc-subs,
-    .toc-subs li:hover > ul,
-    .toc-subs li:focus-within > ul {
-      max-height: 52rem;
-      opacity: 1;
-    }
-    .toc-subs a { font-weight: 450; color: #4a5a73; font-size: 0.74rem; }
-    .toc-subs ul a { font-size: 0.71rem; color: #6a7a93; }
+    .toc a:hover { background: var(--steel-soft); border-bottom-color: var(--navy); }
 
     .block {
       background: var(--white);
@@ -227,9 +199,7 @@
     a.download .meta small { font-weight: 400; font-size: 0.68rem; opacity: 0.8; }
 
     @media (max-width: 980px) {
-      .page { grid-template-columns: 1fr; }
-      .toc { position: static; border-right: none; border-bottom: 1px solid var(--line); padding: 0 0 0.7rem; margin-bottom: 0.8rem; }
-      .toc-subs, .toc-subs ul { max-height: none; opacity: 1; }
+      .toc a { padding: 0.42rem 0.7rem; font-size: 0.78rem; }
     }
     @media (max-width: 720px) {
       .tracks, .pillars { grid-template-columns: 1fr; }
@@ -244,6 +214,7 @@
   </style>
 </head>
 <body>
+  <div class="site-head">
   <header class="topbar">
     <div class="brand">
       <strong>WTI Product Shelf</strong>
@@ -252,98 +223,14 @@
     <div class="badge">内部产品资料汇总</div>
   </header>
 
+  <nav class="toc" aria-label="目录">
+    <a href="#fi">固收及类固收</a>
+    <a href="#struct">结构化产品</a>
+    <a href="#funds">基金</a>
+  </nav>
+</div>
+
   <div class="page">
-    <nav class="toc" aria-label="目录">
-      <div class="toc-label">目录</div>
-      <div class="toc-group">
-        <a href="#fi">固收及类固收</a>
-        <ul class="toc-subs">
-          <li><a href="#fi-bond">债券</a></li>
-          <li><a href="#fi-cd">CD / CP / MTN</a></li>
-        </ul>
-      </div>
-      <div class="toc-group">
-        <a href="#struct">结构化产品</a>
-        <ul class="toc-subs">
-          <li>
-            <a href="#struct-self">平台自动化询报价及交易产品</a>
-            <ul>
-              <li>
-                <a href="#prod-fcn">FCN</a>
-                <ul>
-                  <li><a href="#prod-regular-fcn">Regular FCN</a></li>
-                  <li><a href="#prod-stepdown-fcn">Stepdown FCN</a></li>
-                  <li><a href="#prod-bullet-fcn">Bullet FCN</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="#prod-eln">ELN</a>
-                <ul>
-                  <li><a href="#prod-regular-eln">Regular ELN</a></li>
-                  <li><a href="#prod-ko-eln">KO ELN</a></li>
-                  <li><a href="#prod-worst-of-eln">Worst of ELN</a></li>
-                </ul>
-              </li>
-              <li><a href="#prod-scn">SCN</a></li>
-              <li>
-                <a href="#prod-sharkfin">SHARKFIN</a>
-                <ul>
-                  <li><a href="#prod-bull-sharkfin">Bull Sharkfin</a></li>
-                  <li><a href="#prod-bear-sharkfin">Bear Sharkfin</a></li>
-                  <li><a href="#prod-bull-bear-sharkfin">Bull Bear Sharkfin</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="#prod-aqdq">AQ/DQ</a>
-                <ul>
-                  <li><a href="#prod-accumulator">Accumulator</a></li>
-                  <li><a href="#prod-decumulator">Decumulator</a></li>
-                </ul>
-              </li>
-              <li><a href="#prod-vanilla">Vanilla Option</a></li>
-              <li><a href="#prod-ben">BEN</a></li>
-              <li><a href="#prod-wra-type">WRA</a></li>
-              <li><a href="#prod-dcn-type">DCN</a></li>
-              <li><a href="#prod-phoenix-type">PHOENIX</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#struct-custom">可定制化产品解决方案</a>
-            <ul>
-              <li><a href="#prod-callable-lzn">Callable Linear Zero Coupon Note</a></li>
-              <li><a href="#prod-fccn">Fixed Coupon Callable Note</a></li>
-              <li><a href="#prod-express-fcn">Express FCN</a></li>
-              <li><a href="#prod-fx-digital">FX Digital Note</a></li>
-              <li><a href="#prod-fx-dcn">FX Dual Currency Note</a></li>
-              <li><a href="#prod-rcn-ust">Reverse Convertible Note on US Treasury</a></li>
-              <li><a href="#prod-fx-participation">FX Participation Note</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      <div class="toc-group">
-        <a href="#funds">基金</a>
-        <ul class="toc-subs">
-          <li>
-            <a href="#funds-public">公募</a>
-            <ul>
-              <li><a href="#funds-mmf">货币型</a></li>
-              <li><a href="#funds-equity">股票</a></li>
-              <li><a href="#funds-bond">债券</a></li>
-              <li><a href="#funds-hybrid">混合及另类</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#funds-private">私募</a>
-            <ul>
-              <li><a href="#funds-hf">Hedge Fund</a></li>
-              <li><a href="#funds-pe">Private Equity Fund</a></li>
-              <li><a href="#funds-other">其他私募策略</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </nav>
 
     <main>
       <section class="intro">
@@ -366,8 +253,8 @@
             </thead>
             <tbody>
               <tr id="fi-bond">
-                <td class="name">债券<span class="sub">国债、中资美元债、企业债（投资级 / 投机级，如有）</span></td>
-                <td class="desc">覆盖主权债、中资离岸美元债及公司信用债。国债通常用于利率配置与高流动性底仓；中资美元债覆盖不同行业与信用层级；企业债中，投资级侧重票息与稳健信用，投机级（如有）侧重更高收益与更高信用风险。</td>
+                <td class="name">债券<span class="sub">国债、中资美元债、企业债（投资级 / 投机级）</span></td>
+                <td class="desc">覆盖主权债、中资离岸美元债及公司信用债。国债通常用于利率配置与高流动性底仓；中资美元债覆盖不同行业与信用层级；企业债中，投资级侧重票息与稳健信用，投机级侧重更高收益与更高信用风险。</td>
                 <td><span class="pending">资料待补充</span></td>
               </tr>
               <tr id="fi-cd">
