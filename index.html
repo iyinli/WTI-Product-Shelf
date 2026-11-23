@@ -177,7 +177,8 @@
       font-weight: 400;
       font-size: 0.75rem;
       color: var(--muted);
-      margin-top: 0.12rem;
+      margin-top: 0.08rem;
+      line-height: 1.35;
     }
 
     .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
@@ -320,23 +321,43 @@
               </div>
               <div class="track-b">
                 <ul class="prod-list">
-                  <li id="prod-regular-fcn">FCN<span>Regular FCN</span></li>
-                  <li id="prod-stepdown-fcn">FCN<span>Stepdown FCN</span></li>
-                  <li id="prod-regular-eln">ELN<span>Regular ELN</span></li>
-                  <li id="prod-stepdown-scn">SCN<span>Stepdown SCN</span></li>
-                  <li id="prod-bull-sharkfin">SHARKFIN<span>Bull Sharkfin</span></li>
-                  <li id="prod-bear-sharkfin">SHARKFIN<span>Bear Sharkfin</span></li>
-                  <li id="prod-bull-bear-sharkfin">SHARKFIN<span>Bull Bear Sharkfin</span></li>
-                  <li id="prod-ko-eln">ELN<span>KO ELN</span></li>
-                  <li id="prod-worst-of-eln">ELN<span>Worst of ELN</span></li>
-                  <li id="prod-accumulator">AQ/DQ<span>Accumulator</span></li>
-                  <li id="prod-decumulator">AQ/DQ<span>Decumulator</span></li>
-                  <li id="prod-otc-vanilla">Vanilla Option<span>OTC Vanilla Option</span></li>
-                  <li id="prod-bullet-fcn">FCN<span>Bullet FCN</span></li>
-                  <li id="prod-regular-ben">BEN<span>Regular BEN</span></li>
-                  <li id="prod-wra">WRA<span>Worst of Range Accrual</span></li>
-                  <li id="prod-dcn">DCN<span>Digital Coupon Notes</span></li>
-                  <li id="prod-phoenix">PHOENIX<span>Phoenix Autocall</span></li>
+                  <li id="prod-fcn">FCN
+                    <span id="prod-regular-fcn">Regular FCN</span>
+                    <span id="prod-stepdown-fcn">Stepdown FCN</span>
+                    <span id="prod-bullet-fcn">Bullet FCN</span>
+                  </li>
+                  <li id="prod-eln">ELN
+                    <span id="prod-regular-eln">Regular ELN</span>
+                    <span id="prod-ko-eln">KO ELN</span>
+                    <span id="prod-worst-of-eln">Worst of ELN</span>
+                  </li>
+                  <li id="prod-scn">SCN
+                    <span id="prod-stepdown-scn">Stepdown SCN</span>
+                  </li>
+                  <li id="prod-sharkfin">SHARKFIN
+                    <span id="prod-bull-sharkfin">Bull Sharkfin</span>
+                    <span id="prod-bear-sharkfin">Bear Sharkfin</span>
+                    <span id="prod-bull-bear-sharkfin">Bull Bear Sharkfin</span>
+                  </li>
+                  <li id="prod-aqdq">AQ/DQ
+                    <span id="prod-accumulator">Accumulator</span>
+                    <span id="prod-decumulator">Decumulator</span>
+                  </li>
+                  <li id="prod-vanilla">Vanilla Option
+                    <span id="prod-otc-vanilla">OTC Vanilla Option</span>
+                  </li>
+                  <li id="prod-ben">BEN
+                    <span id="prod-regular-ben">Regular BEN</span>
+                  </li>
+                  <li id="prod-wra-type">WRA
+                    <span id="prod-wra">Worst of Range Accrual</span>
+                  </li>
+                  <li id="prod-dcn-type">DCN
+                    <span id="prod-dcn">Digital Coupon Notes</span>
+                  </li>
+                  <li id="prod-phoenix-type">PHOENIX
+                    <span id="prod-phoenix">Phoenix Autocall</span>
+                  </li>
                 </ul>
               </div>
             </article>
@@ -347,12 +368,13 @@
               </div>
               <div class="track-b">
                 <ul class="prod-list">
+                  <li id="prod-callable-lzn">Callable Linear Zero Coupon Note<span>可赎回线性零息票据</span></li>
+                  <li id="prod-fccn">Fixed Coupon Callable Note<span>可赎回固定票息票据</span></li>
                   <li id="prod-express-fcn">Express FCN<span>快速询价的固定票息票据</span></li>
                   <li id="prod-fx-digital">FX Digital Note<span>外汇二元收益票据</span></li>
                   <li id="prod-fx-dcn">FX Dual Currency Note<span>双币种票据</span></li>
                   <li id="prod-rcn-ust">Reverse Convertible Note on US Treasury<span>挂钩美国国债的反向可转换票据</span></li>
                   <li id="prod-fx-participation">FX Participation Note<span>USDCNH、USDHKD Participation USD Note</span></li>
-                  <li id="prod-pb-callable">PB Callable Linear Zero Coupon Note<span>私人银行可赎回线性零息票据</span></li>
                 </ul>
               </div>
             </article>
@@ -430,34 +452,55 @@
           <li>
             <a href="#struct-self">自主询报价及交易产品</a>
             <ul>
-              <li><a href="#prod-regular-fcn">Regular FCN</a></li>
-              <li><a href="#prod-stepdown-fcn">Stepdown FCN</a></li>
-              <li><a href="#prod-regular-eln">Regular ELN</a></li>
-              <li><a href="#prod-stepdown-scn">Stepdown SCN</a></li>
-              <li><a href="#prod-bull-sharkfin">Bull Sharkfin</a></li>
-              <li><a href="#prod-bear-sharkfin">Bear Sharkfin</a></li>
-              <li><a href="#prod-bull-bear-sharkfin">Bull Bear Sharkfin</a></li>
-              <li><a href="#prod-ko-eln">KO ELN</a></li>
-              <li><a href="#prod-worst-of-eln">Worst of ELN</a></li>
-              <li><a href="#prod-accumulator">Accumulator</a></li>
-              <li><a href="#prod-decumulator">Decumulator</a></li>
-              <li><a href="#prod-otc-vanilla">OTC Vanilla Option</a></li>
-              <li><a href="#prod-bullet-fcn">Bullet FCN</a></li>
-              <li><a href="#prod-regular-ben">Regular BEN</a></li>
-              <li><a href="#prod-wra">Worst of Range Accrual</a></li>
-              <li><a href="#prod-dcn">Digital Coupon Notes</a></li>
-              <li><a href="#prod-phoenix">Phoenix Autocall</a></li>
+              <li>
+                <a href="#prod-fcn">FCN</a>
+                <ul>
+                  <li><a href="#prod-regular-fcn">Regular FCN</a></li>
+                  <li><a href="#prod-stepdown-fcn">Stepdown FCN</a></li>
+                  <li><a href="#prod-bullet-fcn">Bullet FCN</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#prod-eln">ELN</a>
+                <ul>
+                  <li><a href="#prod-regular-eln">Regular ELN</a></li>
+                  <li><a href="#prod-ko-eln">KO ELN</a></li>
+                  <li><a href="#prod-worst-of-eln">Worst of ELN</a></li>
+                </ul>
+              </li>
+              <li><a href="#prod-scn">SCN</a></li>
+              <li>
+                <a href="#prod-sharkfin">SHARKFIN</a>
+                <ul>
+                  <li><a href="#prod-bull-sharkfin">Bull Sharkfin</a></li>
+                  <li><a href="#prod-bear-sharkfin">Bear Sharkfin</a></li>
+                  <li><a href="#prod-bull-bear-sharkfin">Bull Bear Sharkfin</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#prod-aqdq">AQ/DQ</a>
+                <ul>
+                  <li><a href="#prod-accumulator">Accumulator</a></li>
+                  <li><a href="#prod-decumulator">Decumulator</a></li>
+                </ul>
+              </li>
+              <li><a href="#prod-vanilla">Vanilla Option</a></li>
+              <li><a href="#prod-ben">BEN</a></li>
+              <li><a href="#prod-wra-type">WRA</a></li>
+              <li><a href="#prod-dcn-type">DCN</a></li>
+              <li><a href="#prod-phoenix-type">PHOENIX</a></li>
             </ul>
           </li>
           <li>
             <a href="#struct-custom">可定制化产品解决方案</a>
             <ul>
+              <li><a href="#prod-callable-lzn">Callable Linear Zero Coupon Note</a></li>
+              <li><a href="#prod-fccn">Fixed Coupon Callable Note</a></li>
               <li><a href="#prod-express-fcn">Express FCN</a></li>
               <li><a href="#prod-fx-digital">FX Digital Note</a></li>
               <li><a href="#prod-fx-dcn">FX Dual Currency Note</a></li>
               <li><a href="#prod-rcn-ust">Reverse Convertible Note on US Treasury</a></li>
               <li><a href="#prod-fx-participation">FX Participation Note</a></li>
-              <li><a href="#prod-pb-callable">PB Callable Linear Zero Coupon Note</a></li>
             </ul>
           </li>
         </ul>
