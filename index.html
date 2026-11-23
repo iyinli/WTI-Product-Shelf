@@ -53,7 +53,7 @@
     }
     .page {
       display: grid;
-      grid-template-columns: minmax(0, 980px) 220px;
+      grid-template-columns: 220px minmax(0, 980px);
       gap: 1.6rem;
       max-width: 1240px;
       margin: 0 auto;
@@ -66,8 +66,8 @@
     .toc {
       position: sticky;
       top: 2.5rem;
-      padding: 0.35rem 0 0.5rem 0.7rem;
-      border-left: 1px solid var(--line);
+      padding: 0.35rem 0.7rem 0.5rem 0;
+      border-right: 1px solid var(--line);
       font-size: 0.78rem;
     }
     .toc-label {
@@ -228,7 +228,7 @@
 
     @media (max-width: 980px) {
       .page { grid-template-columns: 1fr; }
-      .toc { position: static; border-left: none; border-bottom: 1px solid var(--line); padding: 0 0 0.7rem; margin-bottom: 0.8rem; order: -1; }
+      .toc { position: static; border-right: none; border-bottom: 1px solid var(--line); padding: 0 0 0.7rem; margin-bottom: 0.8rem; }
       .toc-subs, .toc-subs ul { max-height: none; opacity: 1; }
     }
     @media (max-width: 720px) {
@@ -253,6 +253,98 @@
   </header>
 
   <div class="page">
+    <nav class="toc" aria-label="目录">
+      <div class="toc-label">目录</div>
+      <div class="toc-group">
+        <a href="#fi">固收及类固收</a>
+        <ul class="toc-subs">
+          <li><a href="#fi-bond">债券</a></li>
+          <li><a href="#fi-cd">CD / CP / MTN</a></li>
+        </ul>
+      </div>
+      <div class="toc-group">
+        <a href="#struct">结构化产品</a>
+        <ul class="toc-subs">
+          <li>
+            <a href="#struct-self">自主询报价及交易产品</a>
+            <ul>
+              <li>
+                <a href="#prod-fcn">FCN</a>
+                <ul>
+                  <li><a href="#prod-regular-fcn">Regular FCN</a></li>
+                  <li><a href="#prod-stepdown-fcn">Stepdown FCN</a></li>
+                  <li><a href="#prod-bullet-fcn">Bullet FCN</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#prod-eln">ELN</a>
+                <ul>
+                  <li><a href="#prod-regular-eln">Regular ELN</a></li>
+                  <li><a href="#prod-ko-eln">KO ELN</a></li>
+                  <li><a href="#prod-worst-of-eln">Worst of ELN</a></li>
+                </ul>
+              </li>
+              <li><a href="#prod-scn">SCN</a></li>
+              <li>
+                <a href="#prod-sharkfin">SHARKFIN</a>
+                <ul>
+                  <li><a href="#prod-bull-sharkfin">Bull Sharkfin</a></li>
+                  <li><a href="#prod-bear-sharkfin">Bear Sharkfin</a></li>
+                  <li><a href="#prod-bull-bear-sharkfin">Bull Bear Sharkfin</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#prod-aqdq">AQ/DQ</a>
+                <ul>
+                  <li><a href="#prod-accumulator">Accumulator</a></li>
+                  <li><a href="#prod-decumulator">Decumulator</a></li>
+                </ul>
+              </li>
+              <li><a href="#prod-vanilla">Vanilla Option</a></li>
+              <li><a href="#prod-ben">BEN</a></li>
+              <li><a href="#prod-wra-type">WRA</a></li>
+              <li><a href="#prod-dcn-type">DCN</a></li>
+              <li><a href="#prod-phoenix-type">PHOENIX</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#struct-custom">可定制化产品解决方案</a>
+            <ul>
+              <li><a href="#prod-callable-lzn">Callable Linear Zero Coupon Note</a></li>
+              <li><a href="#prod-fccn">Fixed Coupon Callable Note</a></li>
+              <li><a href="#prod-express-fcn">Express FCN</a></li>
+              <li><a href="#prod-fx-digital">FX Digital Note</a></li>
+              <li><a href="#prod-fx-dcn">FX Dual Currency Note</a></li>
+              <li><a href="#prod-rcn-ust">Reverse Convertible Note on US Treasury</a></li>
+              <li><a href="#prod-fx-participation">FX Participation Note</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="toc-group">
+        <a href="#funds">基金</a>
+        <ul class="toc-subs">
+          <li>
+            <a href="#funds-public">公募</a>
+            <ul>
+              <li><a href="#funds-mmf">货币型</a></li>
+              <li><a href="#funds-equity">股票</a></li>
+              <li><a href="#funds-bond">债券</a></li>
+              <li><a href="#funds-hybrid">混合及另类</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#funds-private">私募</a>
+            <ul>
+              <li><a href="#funds-hf">Hedge Fund</a></li>
+              <li><a href="#funds-pe">Private Equity Fund</a></li>
+              <li><a href="#funds-other">其他私募策略</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
     <main>
       <section class="intro">
         <p>价格仅供参考，实际以成交时报价为准。</p>
@@ -424,98 +516,6 @@
         </div>
       </section>
     </main>
-
-    <nav class="toc" aria-label="目录">
-      <div class="toc-label">目录</div>
-      <div class="toc-group">
-        <a href="#fi">固收及类固收</a>
-        <ul class="toc-subs">
-          <li><a href="#fi-bond">债券</a></li>
-          <li><a href="#fi-cd">CD / CP / MTN</a></li>
-        </ul>
-      </div>
-      <div class="toc-group">
-        <a href="#struct">结构化产品</a>
-        <ul class="toc-subs">
-          <li>
-            <a href="#struct-self">自主询报价及交易产品</a>
-            <ul>
-              <li>
-                <a href="#prod-fcn">FCN</a>
-                <ul>
-                  <li><a href="#prod-regular-fcn">Regular FCN</a></li>
-                  <li><a href="#prod-stepdown-fcn">Stepdown FCN</a></li>
-                  <li><a href="#prod-bullet-fcn">Bullet FCN</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="#prod-eln">ELN</a>
-                <ul>
-                  <li><a href="#prod-regular-eln">Regular ELN</a></li>
-                  <li><a href="#prod-ko-eln">KO ELN</a></li>
-                  <li><a href="#prod-worst-of-eln">Worst of ELN</a></li>
-                </ul>
-              </li>
-              <li><a href="#prod-scn">SCN</a></li>
-              <li>
-                <a href="#prod-sharkfin">SHARKFIN</a>
-                <ul>
-                  <li><a href="#prod-bull-sharkfin">Bull Sharkfin</a></li>
-                  <li><a href="#prod-bear-sharkfin">Bear Sharkfin</a></li>
-                  <li><a href="#prod-bull-bear-sharkfin">Bull Bear Sharkfin</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="#prod-aqdq">AQ/DQ</a>
-                <ul>
-                  <li><a href="#prod-accumulator">Accumulator</a></li>
-                  <li><a href="#prod-decumulator">Decumulator</a></li>
-                </ul>
-              </li>
-              <li><a href="#prod-vanilla">Vanilla Option</a></li>
-              <li><a href="#prod-ben">BEN</a></li>
-              <li><a href="#prod-wra-type">WRA</a></li>
-              <li><a href="#prod-dcn-type">DCN</a></li>
-              <li><a href="#prod-phoenix-type">PHOENIX</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#struct-custom">可定制化产品解决方案</a>
-            <ul>
-              <li><a href="#prod-callable-lzn">Callable Linear Zero Coupon Note</a></li>
-              <li><a href="#prod-fccn">Fixed Coupon Callable Note</a></li>
-              <li><a href="#prod-express-fcn">Express FCN</a></li>
-              <li><a href="#prod-fx-digital">FX Digital Note</a></li>
-              <li><a href="#prod-fx-dcn">FX Dual Currency Note</a></li>
-              <li><a href="#prod-rcn-ust">Reverse Convertible Note on US Treasury</a></li>
-              <li><a href="#prod-fx-participation">FX Participation Note</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      <div class="toc-group">
-        <a href="#funds">基金</a>
-        <ul class="toc-subs">
-          <li>
-            <a href="#funds-public">公募</a>
-            <ul>
-              <li><a href="#funds-mmf">货币型</a></li>
-              <li><a href="#funds-equity">股票</a></li>
-              <li><a href="#funds-bond">债券</a></li>
-              <li><a href="#funds-hybrid">混合及另类</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#funds-private">私募</a>
-            <ul>
-              <li><a href="#funds-hf">Hedge Fund</a></li>
-              <li><a href="#funds-pe">Private Equity Fund</a></li>
-              <li><a href="#funds-other">其他私募策略</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </nav>
   </div>
 </body>
 </html>
