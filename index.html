@@ -81,6 +81,11 @@
       line-height: 1.3;
     }
     .toc a:hover { background: var(--steel-soft); border-bottom-color: var(--navy); }
+    .toc a.is-active {
+      background: var(--steel-soft);
+      border-bottom-color: var(--navy);
+      color: var(--navy-deep);
+    }
 
     .block {
       background: var(--white);
@@ -168,7 +173,7 @@
 
 
     .issuer-note {
-      margin-top: 0.85rem;
+      margin: 0 0 0.85rem;
       color: #8a97ad;
       font-size: 0.75rem;
       line-height: 1.55;
@@ -243,6 +248,7 @@
           <h2>固收及类固收</h2>
         </div>
         <div class="block-body">
+          <p class="issuer-note">对接超过 50 家交易对手，扩大询价覆盖，协助客户争取更具竞争力的市场报价。</p>
           <table class="fi-table">
             <thead>
               <tr>
@@ -280,7 +286,6 @@
               </tr>
             </tbody>
           </table>
-          <p class="issuer-note">对接超过 50 家交易对手，扩大询价覆盖，协助客户争取更具竞争力的市场报价。</p>
         </div>
       </section>
 
@@ -290,6 +295,7 @@
           <h2>结构化产品</h2>
         </div>
         <div class="block-body">
+          <p class="issuer-note">支持华泰及更多第三方发行方自动化报价及产品客制化（按照首字母大写排序）：Barclays, BBVA, BNP, CICC, Citi Bank, CLSA, Goldman Sachs, GTJA, HSBC, Huatai, JPM, Leonteq, Marex, Morgan Stanley, Nomura, Societe Generale, UBS。</p>
           <div class="tracks">
             <article class="track" id="struct-self">
               <div class="track-h">
@@ -356,7 +362,6 @@
               </div>
             </article>
           </div>
-          <p class="issuer-note">支持华泰及更多第三方发行方自动化报价及产品客制化（按照首字母大写排序）：Barclays, BBVA, BNP, CICC, Citi Bank, CLSA, Goldman Sachs, GTJA, HSBC, Huatai, JPM, Leonteq, Marex, Morgan Stanley, Nomura, Societe Generale, UBS。</p>
         </div>
       </section>
 
@@ -412,5 +417,52 @@
       </section>
     </main>
   </div>
+
+  <script>
+    (function () {
+      var ids = ["fi", "struct", "funds"];
+      var links = [];
+
+      function headerOffset() {
+        var head = document.querySelector(".site-head");
+        return (head ? head.getBoundingClientRect().height : 0) + 4;
+      }
+
+      function currentSection() {
+        var line = headerOffset();
+        var active = ids[0];
+        for (var i = 0; i < ids.length; i++) {
+          var el = document.getElementById(ids[i]);
+          if (el && el.getBoundingClientRect().top <= line + 1) active = ids[i];
+        }
+        return active;
+      }
+
+      function paint() {
+        var id = currentSection();
+        for (var i = 0; i < links.length; i++) {
+          var on = links[i].hash === "#" + id;
+          links[i].classList.toggle("is-active", on);
+          if (on) links[i].setAttribute("aria-current", "location");
+          else links[i].removeAttribute("aria-current");
+        }
+      }
+
+      function init() {
+        links = Array.prototype.slice.call(document.querySelectorAll(".toc a"));
+        paint();
+        window.addEventListener("scroll", paint, { passive: true });
+        window.addEventListener("resize", paint);
+        window.addEventListener("hashchange", paint);
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", init);
+      } else {
+        init();
+      }
+      window.addEventListener("load", paint);
+    })();
+  </script>
 </body>
 </html>
