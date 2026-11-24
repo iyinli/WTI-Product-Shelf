@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>产品手册 － 债券｜华泰金融控股（香港）</title>
+<!--
+  本地重建稿：华泰金融控股（香港）《产品手册 － 债券》
+  源文件 Bond brochure_simp_chi_FINAL_202401.DOCX（2024-01-29）
+  本文件仅供本地预览，尚未发布或提交。
+-->
+<style>
+  :root {
+    --navy: #002060;
+    --navy-deep: #001440;
+    --navy-mid: #1a3a7a;
+    --steel: #d9e1f2;
+    --steel-soft: #eef2f9;
+    --ink: #1a1a2e;
+    --muted: #5a6a85;
+    --white: #ffffff;
+    --line: #c8d4ea;
+    --gold: #c4a36a;
+    --gold-soft: #e4d3ae;
+    --warn: #9b1c2c;
+    --paper: #f6f8fc;
+    --shadow: 0 8px 28px rgba(0, 32, 96, 0.1);
+    /* claim-priority diagram (faithful to source palette) */
+    --pri-bg: #485766;
+    --pri-senior-bg: #ebf1de;
+    --pri-s1: #4f6228;
+    --pri-s2: #77933c;
+    --pri-s3: #00b050;
+    --pri-sub-bg: #d6e3f0;
+    --pri-u1: #376092;
+    --pri-u2: #0070c0;
+    --pri-hyb-bg: #d9d9d9;
+    --pri-h1: #595959;
+    --pri-h2: #7f7f7f;
+    --pri-eq-bg: #e6b9b8;
+    --pri-e1: #953735;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  [id] { scroll-margin-top: 4.2rem; }
+  body {
+    font-family: "Noto Sans CJK SC", "Noto Sans SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", "Heiti SC", sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.75;
+    font-size: 16px;
+    text-rendering: optimizeLegibility;
+    hanging-punctuation: allow-end;
+    -webkit-font-smoothing: antialiased;
+  }
+  .en { font-family: "Segoe UI", "Noto Sans CJK SC", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; }
+
+  /* ===== Cover ===== */
+  .cover {
+    position: relative;
+    min-height: 100vh;
+    background: #fff;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .cover-panel {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: 1.15fr 10px 0.85fr;
+  }
+  .cover-left { background: #fff; }
+  .cover-rule {
+    background: linear-gradient(90deg, var(--gold-soft), var(--gold) 40%, var(--gold-soft) 70%, var(--gold));
+    box-shadow: 0 0 0 1px rgba(196, 163, 106, 0.25);
+  }
+  .cover-right {
+    background: linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 55%, var(--navy-mid) 100%);
+  }
+  .cover-bar {
+    position: absolute;
+    left: 4%;
+    right: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--navy);
+    color: #fff;
+    padding: 1.15rem 2.2rem;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 1.4rem;
+    box-shadow: 0 10px 30px rgba(0, 20, 64, 0.28);
+    z-index: 2;
+  }
+  .cover-bar h1 {
+    font-size: clamp(1.8rem, 4.2vw, 2.55rem);
+    font-weight: 650;
+    letter-spacing: 0.18em;
+    margin: 0;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+  .cover-bar h1 .dash { letter-spacing: 0.12em; padding: 0 0.15em; font-weight: 500; }
+
+  /* ===== Sticky chrome ===== */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: linear-gradient(90deg, var(--navy-deep), var(--navy) 60%, var(--navy-mid));
+    color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 32, 96, 0.28);
+  }
+  .topbar-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0.45rem 1.25rem 0.35rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.7rem;
+  }
+  .wordmark {
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #fff;
+    line-height: 1.2;
+  }
+  .wordmark small {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    opacity: 0.8;
+    margin-top: 0.08rem;
+  }
+  .toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.1rem 0.05rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    background: rgba(0, 20, 64, 0.25);
+    justify-content: center;
+    padding: 0 0.5rem;
+  }
+  .toc a {
+    color: #e8eef8;
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.42rem 0.7rem;
+    border-bottom: 2px solid transparent;
+    line-height: 1.3;
+    white-space: nowrap;
+  }
+  .toc a:hover { color: #fff; border-bottom-color: var(--gold); background: rgba(255,255,255,0.06); }
+
+  /* ===== Page ===== */
+  .page {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 1.15rem 1.25rem 3.2rem;
+  }
+  section.block {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 1.15rem;
+    overflow: hidden;
+  }
+  .block-head {
+    background: var(--navy);
+    color: #fff;
+    padding: 0.48rem 1.05rem;
+  }
+  .block-head h2 {
+    font-size: 1.02rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.4;
+  }
+  .block-head h2 .num { opacity: 0.8; margin-right: 0.25em; font-weight: 650; }
+  .block-body { padding: 1rem 1.15rem 1.15rem; }
+  .block-body > p,
+  .prose p { margin: 0 0 0.75em; text-align: justify; text-justify: inter-ideograph; }
+  .block-body > p:last-child { margin-bottom: 0; }
+
+  .lead-warn {
+    background: var(--warn);
+    color: #fff;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 0.95rem 1.15rem 1.05rem;
+    margin-bottom: 1.15rem;
+    border: 1px solid #7a1522;
+  }
+  .lead-warn p {
+    font-size: 0.92rem;
+    line-height: 1.75;
+    text-align: justify;
+    font-weight: 500;
+  }
+
+  ul.bullets { margin: 0.15rem 0 0.7rem 0.15rem; padding-left: 1.2rem; }
+  ul.bullets li { margin: 0.2rem 0; text-align: justify; padding-left: 0.15rem; }
+  .term { margin: 0 0 0.85rem; }
+  .term > p, .term-body { text-align: justify; }
+  .term .label, p .label, .dt {
+    font-weight: 700;
+    color: var(--navy);
+  }
+  ol.sub, ul.sub {
+    margin: 0.4rem 0 0.2rem 0.2rem;
+    padding-left: 1.6rem;
+  }
+  ol.sub { list-style: none; padding-left: 0; }
+  ol.sub > li {
+    margin: 0.35rem 0;
+    padding-left: 1.85rem;
+    text-align: justify;
+    position: relative;
+  }
+  ol.sub > li .tag {
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--navy);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    width: 1.7rem;
+  }
+
+  /* ===== Priority diagram ===== */
+  .priority {
+    background: var(--pri-bg);
+    color: #fff;
+    border-radius: 10px;
+    padding: 1rem 1rem 1.15rem;
+    margin: 0.9rem 0 0.2rem;
+  }
+  .priority figcaption {
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.02rem;
+    letter-spacing: 0.12em;
+    margin: 0.15rem 0 0.85rem;
+  }
+  .pri-group {
+    border-radius: 6px;
+    padding: 0.55rem 0.7rem 0.7rem;
+    margin: 0 0 0.55rem;
+  }
+  .pri-group:last-child { margin-bottom: 0; }
+  .pri-group h3 {
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    margin: 0.1rem 0 0.45rem;
+    color: var(--navy-deep);
+  }
+  .pri-item {
+    color: #fff;
+    font-size: 0.86rem;
+    line-height: 1.6;
+    padding: 0.42rem 0.7rem;
+    margin: 0.32rem 0 0;
+    border-radius: 3px;
+  }
+  .g-senior { background: var(--pri-senior-bg); }
+  .g-sub    { background: var(--pri-sub-bg); }
+  .g-hyb    { background: var(--pri-hyb-bg); }
+  .g-eq     { background: var(--pri-eq-bg); }
+  .p-s1 { background: var(--pri-s1); }
+  .p-s2 { background: var(--pri-s2); }
+  .p-s3 { background: var(--pri-s3); }
+  .p-u1 { background: var(--pri-u1); }
+  .p-u2 { background: var(--pri-u2); }
+  .p-h1 { background: var(--pri-h1); }
+  .p-h2 { background: var(--pri-h2); }
+  .p-e1 { background: var(--pri-e1); }
+
+  /* ===== Tables ===== */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.82rem;
+    line-height: 1.45;
+  }
+  .rating-wrap { overflow-x: auto; margin: 0.2rem 0 0.5rem; }
+  .rating-table, .factor-table, .suit-table {
+    border: 1px solid var(--navy);
+    background: #fff;
+  }
+  .rating-table { font-size: 0.78rem; }
+  .rating-table caption, .factor-table caption {
+    caption-side: top;
+    text-align: center;
+    font-weight: 700;
+    color: #fff;
+    background: var(--navy);
+    padding: 0.5rem 0.7rem;
+    font-size: 0.88rem;
+    letter-spacing: 0.04em;
+  }
+  .rating-table th, .rating-table td,
+  .factor-table th, .factor-table td,
+  .suit-table th, .suit-table td {
+    border: 1px solid #8fa0c0;
+    padding: 0.32rem 0.45rem;
+    vertical-align: middle;
+  }
+  .rating-table thead th, .factor-table thead th {
+    background: #d6deee;
+    color: var(--navy);
+    font-weight: 700;
+    text-align: center;
+  }
+  .rating-table td { text-align: center; }
+  .rating-table td.desc {
+    text-align: left;
+    font-size: 0.78rem;
+    color: var(--ink);
+    width: 34%;
+  }
+  .grade {
+    background: var(--steel-soft);
+    color: var(--navy);
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    width: 2rem;
+    padding: 0.4rem 0.15rem;
+  }
+  .source {
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin: 0.2rem 0 1rem;
+  }
+
+  .rating-layout {
+    display: grid;
+    grid-template-columns: 0.88fr 1.42fr;
+    gap: 1rem;
+    align-items: start;
+  }
+  .rating-layout .copy p { font-size: 0.92rem; }
+
+  .factor-box {
+    background: var(--steel-soft);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 0.85rem 0.9rem 1rem;
+    margin: 0.85rem 0 0.2rem;
+  }
+  .factor-table th, .factor-table td { padding: 0.4rem 0.55rem; }
+  .factor-table td:first-child { text-align: left; }
+  .factor-table td.chg { text-align: center; white-space: nowrap; font-weight: 700; width: 18%; }
+  .arr { font-size: 1.05rem; font-weight: 700; color: var(--navy); }
+  .fn {
+    font-size: 0.68em;
+    font-weight: 700;
+    color: var(--navy-mid);
+    vertical-align: super;
+    line-height: 0;
+    margin-left: 0.05em;
+  }
+  .notes { margin-top: 0.7rem; font-size: 0.82rem; color: var(--ink); }
+  .notes p { margin: 0.25rem 0; text-align: left; }
+
+  /* ===== Risk extras ===== */
+  .risk-extra {
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--navy);
+    background: var(--steel-soft);
+    border-radius: 6px;
+    padding: 0.7rem 0.85rem 0.55rem;
+    margin: 0.7rem 0;
+  }
+  .risk-extra > .label { display: block; margin-bottom: 0.35rem; }
+
+  /* ===== Sections 6 + 7 ===== */
+  .pair {
+    display: grid;
+    grid-template-columns: 1fr 1.45fr;
+    gap: 1rem;
+    align-items: stretch;
+  }
+  .pair .block { margin-bottom: 0; display: flex; flex-direction: column; }
+  .pair .block-body { flex: 1; }
+  .icon-row {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 0.7rem;
+  }
+  .icon-bubble {
+    width: 52px;
+    height: 52px;
+    flex: 0 0 52px;
+  }
+  .suit-table th {
+    background: var(--navy);
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    width: 5.4rem;
+    font-size: 0.82rem;
+    line-height: 1.4;
+  }
+  .suit-table td {
+    text-align: left;
+    vertical-align: top;
+    padding: 0.5rem 0.65rem;
+    background: #fff;
+  }
+  .suit-table ul { margin: 0; padding-left: 1.05rem; }
+  .suit-table li { margin: 0.15rem 0; }
+
+  /* ===== Disclaimer ===== */
+  .legal .block-body { font-size: 0.84rem; line-height: 1.75; color: #243044; }
+  .legal p { margin: 0 0 0.7em; text-align: justify; }
+  .legal p:last-child { margin-bottom: 0; }
+  .legal .closers { margin-top: 1rem; }
+  .legal ul.dash {
+    list-style: none;
+    padding: 0 0 0 0.4rem;
+    margin: 0.35rem 0 0.8rem;
+  }
+  .legal ul.dash li { padding-left: 1rem; position: relative; margin: 0.2rem 0; }
+  .legal ul.dash li::before { content: "–"; position: absolute; left: 0; color: var(--navy); }
+
+  footer.doc-end {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.75rem;
+    padding: 0.4rem 1rem 0.8rem;
+  }
+
+  @media only screen and (max-width: 860px) {
+    .rating-layout, .pair { grid-template-columns: 1fr; }
+    .cover-bar h1 { letter-spacing: 0.1em; font-size: 1.55rem; }
+    .toc a { font-size: 0.72rem; padding: 0.38rem 0.5rem; }
+    .grade { letter-spacing: 0.12em; }
+  }
+
+  @media print {
+    :root { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    @page { size: A4; margin: 12mm 11mm 13mm; }
+    @page :first { margin: 0; }
+    body { background: #fff; font-size: 10pt; }
+    .topbar { display: none; }
+    .page { max-width: none; padding: 0; }
+    .cover {
+      min-height: 100vh;
+      height: 100vh;
+      page-break-after: always;
+      break-after: page;
+    }
+    section.block {
+      box-shadow: none;
+      border: none;
+      border-radius: 0;
+      break-inside: auto;
+      margin-bottom: 0.7rem;
+    }
+    .block-head { break-after: avoid; }
+    .lead-warn, .factor-box, .priority, .risk-extra, .term {
+      box-shadow: none;
+      break-inside: avoid;
+    }
+    .rating-table, .factor-table, .suit-table, figure, .rating-wrap { break-inside: avoid; }
+    .rating-layout {
+      grid-template-columns: 0.92fr 1.28fr;
+      gap: 0.7rem;
+      break-inside: auto;
+    }
+    .rating-layout .copy p { font-size: 8.8pt; line-height: 1.62; }
+    .rating-table { font-size: 7.6pt; }
+    .rating-table td, .rating-table th { padding: 0.18rem 0.28rem; }
+    .pair { grid-template-columns: 1fr; }
+    a { color: inherit; text-decoration: none; }
+    footer.doc-end { display: none; }
+    .block-body { padding: 0.7rem 0.2rem 0.6rem; }
+    .lead-warn { margin-bottom: 0.7rem; }
+  }
+</style>
+</head>
+<body>
+
+<section class="cover" aria-label="封面">
+  <div class="cover-panel" aria-hidden="true">
+    <div class="cover-left"></div>
+    <div class="cover-rule"></div>
+    <div class="cover-right"></div>
+  </div>
+  <div class="cover-bar">
+    <h1>产品手册<span class="dash">－</span>债券</h1>
+  </div>
+</section>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="wordmark">债券<small>产品手册</small></div>
+  </div>
+  <nav class="toc" aria-label="目录">
+    <a href="#s1">1. 债券是什么？</a>
+    <a href="#s2">2. 什么类型的投资者会买债券？</a>
+    <a href="#s3">3. 债券的特征及术语</a>
+    <a href="#s4">4. 债券价格</a>
+    <a href="#s5">5. 债券的主要风险</a>
+    <a href="#s6">6. 如何选择债券</a>
+    <a href="#s7">7. 投资者的概况与合适性</a>
+    <a href="#legal">重要事项及免责声明</a>
+  </nav>
+</div>
+
+<main class="page">
+
+  <div class="lead-warn" id="warning">
+    <p>这是可能涉及金融衍生工具的投资产品。除非您完全了解并愿意承担所涉风险，否则请勿投资此产品。如您对本产品所涉及的风险有疑问，应询问有关中介机构或寻求独立专业意见。投资涉及风险，价格可升可跌，投资者在做出任何投资决定前，应仔细阅读本产品手册中的风险披露章节。</p>
+  </div>
+
+  <section class="block" id="s1">
+    <div class="block-head"><h2><span class="num">1.</span>债券是什么？</h2></div>
+    <div class="block-body prose">
+      <p>债券<span class="en">(bonds)</span>是一种债务证券<span class="en">(debt securities)</span>，其发行目的是通过借贷来筹集资金。发债机构一般会承诺在指定日期以指定货币偿还债券本金及利息，有关条款和条件会载于销售文件或资料概要。未经债券持有人同意，债券一经发行，条款就不能变更。市场上也可能将债券称为「票据<span class="en">(note)</span>」或「债权证<span class="en">(debenture)</span>」，而存款证<span class="en">(certificate of deposit)</span>则是由存款机构发行的短期债券，一般不受政府的存款保障计划保障。</p>
+    </div>
+  </section>
+
+  <section class="block" id="s2">
+    <div class="block-head"><h2><span class="num">2.</span>什么类型的投资者会买债券？</h2></div>
+    <div class="block-body">
+      <ul class="bullets">
+        <li>为赚取稳定，且高于一般银行存款的利息收入而持有债券。</li>
+        <li>为寻求赚取债券升值的差价而买卖债券。</li>
+        <li>希望把握外币升值潜力而买入相关外币债券，以实现利息与汇兑收益兼得。</li>
+        <li>一般而言，债券市场与股市的相关性不高，因此投资者可将债券纳入投资组合，使资产类别更加多元化，从而分散风险。</li>
+        <li>与股票等升值潜力较高的资产相比，债券除了提供稳定收益，波动性也普遍较低，因此一般被视为较低风险的投资。对于风险承受能力较低的投资者而言，往往是较为保守的选择。</li>
+        <li>可换股债券及可转换债券的投资者，除了上述原因外，也期望分享相关股票的上涨。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block" id="s3">
+    <div class="block-head"><h2><span class="num">3.</span>债券的特征及术语</h2></div>
+    <div class="block-body">
+      <div class="term">
+        <p><span class="label">a. 发债机构<span class="en">(Issuer)</span>：</span>也称发行人或发行商，即借入资金的一方。债券一般会根据发债机构的性质分类，例如企业债券、政府债券或由超国家机构（例如世界银行）发行的债券。企业债券是由企业或其子公司发行，目的是为业务筹集资金。政府债券则是由政府发行，一般被视为风险较低，因为政府违约的可能性相对较低。</p>
+      </div>
+      <div class="term">
+        <p><span class="label">b. 债券本金<span class="en">(Bond Principal)</span>：</span>也称票面值<span class="en">(par value)</span>或面值<span class="en">(face value)</span>。在大多数情况下，债券本金价值相等于赎回值，即在债券到期日需向持有人偿还的款项。【注：这不一定等于投资者买入债券的成本价（投资本金），因该买入价可能高于或低于债券的面值】。「摊还债券<span class="en">(amortizing bond 或 amortized bond)</span>」则会在债券期限内分阶段摊还债券本金，而不是等到到期时才一次性偿还全部债券本金。</p>
+      </div>
+      <div class="term">
+        <p><span class="label">c. 票息率<span class="en">(Coupon Rate)</span>：</span>也称票面息率，发债机构以此息率按债券本金向持有人支付利息。票息率是在发行时约定的，可以是在整个债券期内维持固定，也可以是按约定的计算公式而变化，例如：</p>
+        <ol class="sub">
+          <li><span class="tag">i.</span><span class="label">定息<span class="en">(Fixed Rate / Fixed Coupon)</span></span> – 即固定息率，其主要优点是能预知债券的未来现金流量，然而投资者需承受债券价格随市场利率波动的风险。</li>
+          <li><span class="tag">ii.</span><span class="label">浮息<span class="en">(Floating Rate)</span></span> – 按指定的参考利率制定，例如伦敦银行同业拆息加上约定的息差定期重设，因此会随着当前的市场利率浮动。其主要优点是债券价格受市场利率波动的影响较轻，不过债券的未来现金流量则较难预测。</li>
+          <li><span class="tag">iii.</span><span class="label">零息<span class="en">(Zero Coupon)</span></span> – 零息债券通常会以低于债券本金的价格发行，债券持有人将在到期日收回债券本金，从而赚取买入价与债券本金之间的差额。</li>
+          <li><span class="tag">iv.</span><span class="label">与通货膨胀率挂钩<span class="en">(Inflation-Linked)</span></span> – 通胀挂钩债券的票息与指定地区的通货膨胀率挂钩，其优点是保持债券持有人的购买力。</li>
+          <li><span class="tag">v.</span><span class="label">递增<span class="en">(Step-Up)</span>或递减<span class="en">(Step-Down)</span></span> – 根据约定条款按时间顺序递增或递减。</li>
+        </ol>
+      </div>
+      <div class="term">
+        <p><span class="label">d. 付息频率<span class="en">(Coupon Frequency)</span>：</span>指债券通常每隔多久支付票息一次，例如每年、每半年或每季。</p>
+      </div>
+      <div class="term">
+        <p><span class="label">e. 期限<span class="en">(Term, Maturity 或 Tenor)</span>：</span>指债券的有效期，即发债机构承诺在这段期间履行发债所涉及的责任，例如支付利息及偿还债券本金。</p>
+      </div>
+      <div class="term">
+        <p><span class="label">f. 到期日<span class="en">(Maturity Date)</span>：</span>除了无注明到期日的「永续债券」外，每一只债券都有指定的到期日。债券一般会在到期日按面值被赎回，但也有一些债券设有提前或延期赎回机制。</p>
+        <ol class="sub">
+          <li><span class="tag">i.</span><span class="label">可提前赎回债券<span class="en">(Callable bond)</span></span>的发债机构有权按预定条款，在到期日前（例如发行日5年之后的任何付息日）按预定价格（例如100%面值）提前赎回债券。</li>
+          <li><span class="tag">ii.</span><span class="label">可回售债券<span class="en">(Putable bond)</span></span>的持有人有权按债券条款，在到期日前的指定可回售日按预定价格向发债机构回售债券。</li>
+          <li><span class="tag">iii.</span><span class="label">永续债券<span class="en">(Perpetual bond)</span></span>没有到期日，但会定期派息，也可能设有提前赎回机制（详见上述「可提前赎回债券」部分）。</li>
+        </ol>
+        <p>在到期日前，如投资者想将债券变现以灵活调动资金，可选择以当时市场价格将债券出售，但需注意债券价格可升可跌，而其流动性会影响买卖价差。</p>
+      </div>
+      <div class="term">
+        <p><span class="label">g. 收益率<span class="en">(Yield)</span>：</span>债券投资者要考虑收益率以比较不同债券的回报水平。如果发债条款及信用评级均大致相当，则收益率越高，债券的潜在投资价值也越高。下一步是仔细比较买入价及票息率，从而选出最值得投资的债券。债券的实际收益率取决于其买入价，因此可能高于或低于票息率。常用的债券收益率指标有三种：</p>
+        <ol class="sub">
+          <li><span class="tag">i.</span><span class="label">现时收益率<span class="en">(Current yield)</span></span> – 计算方法是将债券现时的年度票息除以债券现价，代表投资者以现价买入债券并持有一年的预计回报。不过，由于债券价格可升可跌，现时收益率不能准确地反映投资者将获得的实际回报率。</li>
+          <li><span class="tag">ii.</span><span class="label">到期收益率<span class="en">(Yield to maturity)</span></span> – 预计以债券现价买入债券，并持有至到期日所得的回报率，通常以年率的形式表达。</li>
+          <li><span class="tag">iii.</span><span class="label">至提前赎回时收益率<span class="en">(Yield to call)</span></span> – 预计以债券现价买入债券，直至收到提前赎回通知为止的回报率，只适用于可提前赎回债券。如无特别指明哪一个可提前赎回日，则代表是以下一个可提前赎回日计算。</li>
+          <li><span class="tag">iv.</span><span class="label">最低收益率<span class="en">(Minimum yield)</span></span> – 可提前赎回债券在各种可能赎回情况下的最低回报率，以「到期收益率」及所有未来可提前赎回日的「至提前赎回时收益率」中的最低者为准。</li>
+        </ol>
+        <p>收益率是投资债券的实际回报率，即使债券的票息率很高，其收益率（即实际回报率）却未必会高（例如当债券买入价高于其面值），两者不可混淆。</p>
+        <p>在选择债券时，不能只着眼于收益率。高息债券不一定适合所有投资者。一般来说，信用评级较低的债券必须提供较高的利息才可吸引投资者；至于期限较长的债券，除非出现收益率曲线倒挂的现象，否则收益率也会较高，但必须留意这些债券往往涉及较大的风险。</p>
+      </div>
+      <div class="term">
+        <p><span class="label">h. 零波动价差<span class="en">(Z-spread)</span>：</span>指债券与国债的收益率之间的差距，其计算方法是假设债券的市场价格等于债券的未来现金流经贴现后的理论现值<span class="en">(present value of future cash flows)</span>，而贴现率<span class="en">(discount rate)</span>则按每笔现金流的时间顺序，在国债收益率曲线的相应位置加上该价差<span class="en">(spread)</span>后确定。</p>
+      </div>
+      <div class="term">
+        <p><span class="label">i. 担保人<span class="en">(Guarantor)</span>：</span>有些债券会由第三方（称为「担保人」）提供保证，若发债机构违约，担保人需向债券持有人偿还债券本金和/或利息。</p>
+      </div>
+      <div class="term">
+        <p><span class="label">j. 抵押<span class="en">(Collateral)</span>：</span>有些债券会以抵押或留置发债机构的指定资产（例如某项物业或基建）作为担保而发行，被称为「抵押债券<span class="en">(mortgage bond, asset-backed security, covered bond, secured bond 或 collaterized bond)</span>」。假如发债机构不能如期还本付息，债券持有人有权要求处理抵押品或留置品，以收回债券本金和利息。有关抵押会在销售文件或条款摘要中载明。若所有其他因素相同，理论上抵押债券相对无抵押债券的风险较低。</p>
+      </div>
+      <div class="term">
+        <p><span class="label">k. 索偿的优先次序<span class="en">(Priority of claim)</span>：</span>市场中的债券多为优先<span class="en">(senior)</span>债券，但也有不少属于后偿<span class="en">(subordinated)</span>债券（也称「次级」债券）。假如发行机构出现资不抵债的情况，后偿债券的索偿次序会落后于优先债券，即优先债券的持有人会先获偿付，之后如有剩余资金，才会偿付给后偿债券的持有人。因此，后偿债券的风险较高，其信用评级一般也会低于同一发债机构的优先债券。</p>
+        <figure class="priority">
+          <figcaption>索偿优先次序图</figcaption>
+          <div class="pri-group g-senior">
+            <h3>优先债</h3>
+            <div class="pri-item p-s1">有抵押负债：包括回购协议<span class="en">(repurchase agreement, 简称 Repo)</span>、抵押债券</div>
+            <div class="pri-item p-s2">存款、衍生工具及掉期负债<span class="en">(swap liabilities)</span>：在有银行决议制度的国家，索偿次序可排在优先无抵押债券之前</div>
+            <div class="pri-item p-s3">优先无抵押债券：设定到期日的债券（需支付票息或是零息债券）</div>
+          </div>
+          <div class="pri-group g-sub">
+            <h3>后偿债</h3>
+            <div class="pri-item p-u1">次级<span class="en">(Tier 2)</span>债券：设定到期日的债券（需支付票息或是零息债券），而索偿次序落后于优先债</div>
+            <div class="pri-item p-u2">次级或然可转换<span class="en">(Contingent Convertible)</span>／自救<span class="en">(Bail-in)</span>债券：在触发事件后减记本金或转换为普通股，从而吸纳亏损</div>
+          </div>
+          <div class="pri-group g-hyb">
+            <h3>混合式资本证券</h3>
+            <div class="pri-item p-h1">一级<span class="en">(Tier 1)</span>混合式资本证券：包括永续债券和有机会不派息且不用偿付累计欠息的证券[包括优先股<span class="en">(preferred shares)</span>]，其索偿次序先于股本</div>
+            <div class="pri-item p-h2">一级或然可转换／自救债券：在触发事件后减记本金或转换为普通股，从而吸纳亏损</div>
+          </div>
+          <div class="pri-group g-eq">
+            <h3>股本</h3>
+            <div class="pri-item p-e1">普通股</div>
+          </div>
+        </figure>
+      </div>
+
+      <div class="term" id="credit-rating">
+        <div class="rating-layout">
+          <div class="copy">
+            <p><span class="label">l. 信用评级<span class="en">(Credit rating)</span>：</span>投资者在买入债券后，就成为发债机构的债权人，而发债机构的信用质量往往反映了该机构是否有能力如期偿还债券的利息和/或本金。投资者可参考由信用评级机构评定，有关发债机构或债券本身的信用评级。国际认可的评级机构包括标准普尔、穆迪和惠誉。最高十个级别（以长期信用评级而言）称为投资级别，而低于投资级别者则称为非投资级别，顾名思义，后者的信用风险会较高。</p>
+            <p>在评定债券评级时，信用评级机构会考虑多项因素，例如发债机构的其他债务、财务状况、收入及盈利前景、担保人（如有）的信用质量、抵押品（如适用）的价值、债券持有人索偿的优先次序、相关的国家风险以及其他从事同类业务的公司的表现等。若评级机构认为债券持有人有较大机会收回债券的本金及利息，就会给予有关债券较高的评级。有关个别评级的详细说明，可在各信用评级机构的网站查阅。请注意：信用评级只反映该信用评级机构的看法，并不保证发债机构的信用风险状况，而且可能会不时更改。此外，并不是每一只债券都有评级，而没有评级的债券的信用可靠程度可高可低。</p>
+            <p>债券的收益率会受该债券的信用风险影响。一般来说，债券的信用风险越高，其信用息差<span class="en">(credit spread)</span>也越大，收益率也会越高。信用息差是指债券的风险溢价，即投资者要求风险较高的债券提供较高的收益率以补偿他们所承受较大的风险。由于非投资级别的债券附带较高风险，收益率也相应较高，所以也称为投机级别债券、高息债券或垃圾债券。</p>
+          </div>
+          <div class="rating-wrap">
+            <table class="rating-table">
+              <caption>发债机构／债券长期（即还款期为一年以上）信用评级表</caption>
+              <thead>
+                <tr>
+                  <th rowspan="2"></th>
+                  <th colspan="3">评级机构</th>
+                  <th rowspan="2">发债机构履行其在债券项下财务承诺的能力</th>
+                </tr>
+                <tr>
+                  <th>标准普尔</th>
+                  <th>穆迪</th>
+                  <th>惠誉</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th class="grade" rowspan="10">投资级别</th>
+                  <td>AAA</td><td>Aaa</td><td>AAA</td>
+                  <td class="desc">极强。此为最佳的信用评级。</td>
+                </tr>
+                <tr><td>AA+</td><td>Aa1</td><td>AA+</td><td class="desc" rowspan="3">很强</td></tr>
+                <tr><td>AA</td><td>Aa2</td><td>AA</td></tr>
+                <tr><td>AA-</td><td>Aa3</td><td>AA-</td></tr>
+                <tr><td>A+</td><td>A1</td><td>A+</td><td class="desc" rowspan="3">强</td></tr>
+                <tr><td>A</td><td>A2</td><td>A</td></tr>
+                <tr><td>A-</td><td>A3</td><td>A-</td></tr>
+                <tr><td>BBB+</td><td>Baa1</td><td>BBB+</td><td class="desc" rowspan="3">足够。此为投资级别分类中最低评级。</td></tr>
+                <tr><td>BBB</td><td>Baa2</td><td>BBB</td></tr>
+                <tr><td>BBB-</td><td>Baa3</td><td>BBB-</td></tr>
+                <tr>
+                  <th class="grade" rowspan="12">投机级别</th>
+                  <td>BB+</td><td>Ba1</td><td>BB+</td>
+                  <td class="desc" rowspan="3">弱。此为投机级别分类中最高评级。</td>
+                </tr>
+                <tr><td>BB</td><td>Ba2</td><td>BB</td></tr>
+                <tr><td>BB-</td><td>Ba3</td><td>BB-</td></tr>
+                <tr><td>B+</td><td>B1</td><td>B+</td><td class="desc" rowspan="3">很弱</td></tr>
+                <tr><td>B</td><td>B2</td><td>B</td></tr>
+                <tr><td>B-</td><td>B3</td><td>B-</td></tr>
+                <tr><td>CCC+</td><td>Caa1</td><td rowspan="3">CCC</td><td class="desc" rowspan="3">极弱</td></tr>
+                <tr><td>CCC</td><td>Caa2</td></tr>
+                <tr><td>CCC-</td><td>Caa3</td></tr>
+                <tr><td>CC</td><td rowspan="2">Ca</td><td>CC</td><td class="desc" rowspan="2">违约风险非常高</td></tr>
+                <tr><td>C</td><td>C</td></tr>
+                <tr>
+                  <td>SD(选择性违约)/<br>D(违约)</td>
+                  <td>C</td>
+                  <td>RD(有限度违约)/<br>D(违约)</td>
+                  <td class="desc">负责人未能支付其一项或多项财务承诺。此为投机级别分类中最低评级。</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td colspan="3">NR（没有评级）</td>
+                  <td class="desc">发债机构没有要求评级机构进行评级，或评级机构没有足够资料进行评级，或评级机构基于政策不予该债券评级。</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="rating-wrap" style="margin-top:1rem;">
+          <table class="rating-table">
+            <caption>发债机构／债券短期（即还款期为一年以内）信用评级表</caption>
+            <thead>
+              <tr>
+                <th rowspan="2"></th>
+                <th colspan="3">评级机构</th>
+                <th rowspan="2">发债机构履行其在债券项下财务承诺的能力</th>
+              </tr>
+              <tr>
+                <th>标准普尔</th>
+                <th>穆迪</th>
+                <th>惠誉</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th class="grade" rowspan="4">投资级别</th>
+                <td>A-1+</td>
+                <td rowspan="2">P-1</td>
+                <td>F1+</td>
+                <td class="desc">极强。此为最佳的信用评级。</td>
+              </tr>
+              <tr>
+                <td>A-1</td>
+                <td>F1</td>
+                <td class="desc">很强</td>
+              </tr>
+              <tr><td>A-2</td><td>P-2</td><td>F2</td><td class="desc">强</td></tr>
+              <tr><td>A-3</td><td>P-3</td><td>F3</td><td class="desc">足够</td></tr>
+              <tr>
+                <th class="grade" rowspan="3">投机级别</th>
+                <td>B</td>
+                <td rowspan="3">NP(非优级)</td>
+                <td>B</td>
+                <td class="desc">弱</td>
+              </tr>
+              <tr><td>C</td><td>C</td><td class="desc">很弱</td></tr>
+              <tr>
+                <td>SD(选择性违约)/<br>D(违约)</td>
+                <td>RD(有限度违约)/<br>D(违约)</td>
+                <td class="desc">负责人未能支付其一项或多项财务承诺。此为投机级别分类中最低评级。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="source">资料来源：标准普尔、穆迪及惠誉</p>
+      </div>
+
+      <div class="term">
+        <p><span class="label">m. 契约<span class="en">(Covenant)</span>：</span>债券契约中载明了合同条款，详列发债机构需执行及禁止进行的若干行动，旨在保障属于债券持有人的资产免遭剥夺，并减少不同利益相关方之间的利益冲突，从而协助保全投资者债券的剩余价值并确保发行机构的偿债能力。</p>
+        <p>限制条件可要求发债机构执行或维持若干条件（正面限制条件），例如要求发债机构维持杠杆比率于指定水平；或禁止发债机构从事若干活动（负面限制条件），例如禁止发债机构发行偿付优先次序高于现存债券的新债或支付股息。限制条件可对高息债券的吸引力影响举足轻重，投资者需要在做出投资决策前了解契约内的限制条件。</p>
+      </div>
+      <div class="term">
+        <p><span class="label">n. 具有其他特色的债券：</span></p>
+        <ol class="sub">
+          <li><span class="tag">i.</span><span class="label">可换股债券<span class="en">(Convertible bond)</span></span>的持有人有权将债券转换为发债机构或某相关公司的指定数量未发行股份。</li>
+          <li><span class="tag">ii.</span><span class="label">可转换债券<span class="en">(Exchangeable bond)</span></span>的持有人有权将债券换取发债机构或相关公司持有指定数量的股份，而该等股份可以是任何机构的已发行股份。</li>
+          <li><span class="tag">iii.</span><span class="label">或然可转换债券</span> [也称应急资本证券<span class="en">(Contingent capital securities, 简称 CoCo)</span>]：通常为银行或金融机构发行的一级或次级后偿债券，一般在发债机构资本不足时，用于吸收损失。这类债券多数为永续债券，也普遍同时附有提前赎回机制。当「触发事件」发生时，其票息可能会被下调、延迟、暂停、取消，或以股票／新债形式取代现金派息，而债券的全部或部分本金可能会被暂时或永久注销，或按预定的行使价转换为发债机构的股份。触发事件的例子包括发债机构的资本比率跌至低于某一水平，或发债机构的股价有一段时间跌至低于某一水平。如触发事件由监管机构酌情决定（例如当监管机构认为该银行如无政府担保就无法融资，导致银行不能存续），则称为自救<span class="en">(bail-in)</span>债券。</li>
+          <li><span class="tag">iv.</span>当上述债券被转换为股份时，债券本金会按行使价<span class="en">(strike price)</span>[或称转换价<span class="en">(conversion price)</span>]被转换为相关股份。可换股／可转换债券的持有人可在相关股份升值至高于行使价时，于预定的行使日将债券转换为该等股份，以分享股价上涨。由于这类债券的升值潜力较高，其票息率通常会低于期限及信用风险相近的传统债券。相反，当或然可转换／自救债券被转换为股份时，投资者通常要承受亏损，因此其票息率会较高，以补偿投资者需承担的较高风险。</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="s4">
+    <div class="block-head"><h2><span class="num">4.</span>债券价格</h2></div>
+    <div class="block-body">
+      <p>债券一般按本金的百分比报价，以本金为100,000元的债券为例，若报价为102，即表示您需要支付102,000元才能买入该债券。</p>
+      <p>债券在二级市场的交易价格可能与您之前的买入价有很大差别。债券价格取决于多种因素，例如利率的走势、信用评级的任何转变、市场对信用风险的接受程度、类似债券的供求情况，以及（若属可换股或可转换债券）标的股票的价格等。债券的收益率与债券价格息息相关，一般会出现以下模式：</p>
+      <ul class="bullets">
+        <li>若按面值（即「票面价」或「平价」）买入债券并持有至到期日，收益率将与票息率相同。</li>
+        <li>若以高于面值的价格（即「溢价」）买入债券并持有至到期日，收益率将低于票息率。</li>
+        <li>若以低于面值的价格（即「折价」或「贴现价」）买入债券并持有至到期日，收益率将高于票息率。</li>
+      </ul>
+      <div class="factor-box">
+        <table class="factor-table">
+          <caption>因素变动对债券二级市场价格及收益率的预期影响</caption>
+          <thead>
+            <tr>
+              <th>因素变动</th>
+              <th>债券价格</th>
+              <th>收益率</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>市场利率和/或通货膨胀 <span class="arr">↑</span></td>
+              <td class="chg"><span class="arr">↓</span><sup class="fn">1</sup></td>
+              <td class="chg"><span class="arr">↑</span></td>
+            </tr>
+            <tr>
+              <td>市场利率和/或通货膨胀 <span class="arr">↓</span></td>
+              <td class="chg"><span class="arr">↑</span><sup class="fn">1</sup></td>
+              <td class="chg"><span class="arr">↓</span></td>
+            </tr>
+            <tr>
+              <td>债券／发债机构的信用质量 <span class="arr">↑</span></td>
+              <td class="chg"><span class="arr">↑</span></td>
+              <td class="chg"><span class="arr">↓</span></td>
+            </tr>
+            <tr>
+              <td>债券／发债机构的信用质量 <span class="arr">↓</span></td>
+              <td class="chg"><span class="arr">↓</span></td>
+              <td class="chg"><span class="arr">↑</span></td>
+            </tr>
+            <tr>
+              <td>市场对信用风险的偏好 <span class="arr">↑</span></td>
+              <td class="chg"><span class="arr">↑</span><sup class="fn">2</sup></td>
+              <td class="chg"><span class="arr">↓</span><sup class="fn">2</sup></td>
+            </tr>
+            <tr>
+              <td>市场对信用风险的偏好 <span class="arr">↓</span></td>
+              <td class="chg"><span class="arr">↓</span><sup class="fn">2</sup></td>
+              <td class="chg"><span class="arr">↑</span><sup class="fn">2</sup></td>
+            </tr>
+            <tr>
+              <td>相关标的股票的价格（如属可换股或可转换债券） <span class="arr">↑</span></td>
+              <td class="chg"><span class="arr">↑</span></td>
+              <td class="chg"><span class="arr">↓</span></td>
+            </tr>
+            <tr>
+              <td>相关标的股票的价格（如属可换股或可转换债券） <span class="arr">↓</span></td>
+              <td class="chg"><span class="arr">↓</span></td>
+              <td class="chg"><span class="arr">↑</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="notes">
+          <p>注：上表每行均假设除所述因素外，所有其他因素均维持不变。</p>
+          <p><sup class="fn">1</sup> 主要影响定息及零息债券，且期限越长，影响越大，但对浮息及通胀挂钩债券的影响则较轻。</p>
+          <p><sup class="fn">2</sup> 信用风险越高，影响越大。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="s5">
+    <div class="block-head"><h2><span class="num">5.</span>债券的主要风险</h2></div>
+    <div class="block-body">
+      <p>债券价格可升可跌，投资者可能要承担以下一种或多种风险，在最差的情况下甚至会损失全部本金。</p>
+      <div class="term">
+        <p><span class="label">a. 信用风险：</span>也称违约风险，即发债机构未能如期支付利息和/或偿付债券本金的风险。如发债机构违约，在最坏的情况下，您可能会损失全部本金及任何本来可能会赚取的回报。即使债券附有抵押，也不保证债权人在出售抵押品后所收回的款项足以抵偿被拖欠的全部款项，而且抵押品也不一定易于变现。</p>
+        <p>债券的二级市场价格会随着信用风险而变动。假如发债机构／债券的信用评级被下调，债券价格就会下跌。您可以根据评级机构对发债机构或个别债券不时评定的评级，作为信用风险水平的参考，但有关评级并不保证发债机构的信用。此外，如果市场对信用风险的偏好下降（例如在市场动荡之际），风险溢价就会上升，使债券价格（尤其是信用评级较低者）承压。</p>
+        <p>即使债券处于利好的市场环境，单个的特殊风险可导致若干发债机构违约。因此，投资者应将投资组合分散于不同地区、行业、评级及发债机构。</p>
+      </div>
+      <div class="term">
+        <p><span class="label">b. 利率风险：</span>定息／零息债券的价格通常与利率的走势背道而驰：当利率上升，债券价格就会下跌；相反，当利率下跌，债券价格则会上升。债券价格对利率变化的敏感度，取决于个别债券在各方面的特点，特别是其剩余存续期。</p>
+        <p>如果您打算在到期日前卖出债券，所收回的金额可能会低于债券本金。此外，相对于期限较短的债券，期限较长的债券受利率变动的影响较大。例如，30年期的零息债券对利率调整的敏感度通常会较5年期的定息债券为高，这是因为零息债券只会在到期时才偿还债券本金，在此之前不会支付任何利息。零息债券的现值是把到期时需偿还的债券本金，以贴现的方法来计算。债券期限越短，利率变化对有关贴现率（按剩余期限以复利方式计算）的影响也越小，因而对债券价格的影响也越轻。</p>
+        <p>由于浮息债券的票息会随着市场利率定期调整，其所承受的利率风险相对较低。</p>
+      </div>
+      <div class="term">
+        <p><span class="label">c. 流动性风险：</span>需要现金周转或打算将资金转作其他投资的债券持有人，可能需要在债券到期前卖出债券。因此您在投资前必须考虑自己在资金周转方面的需要，以及债券期限是否与您的投资期限相符。您能否顺利地以理想的价格出售所持有的债券，将取决于该债券在市场的流动性。一些市场可能会设有做市商，负责提供流动性。某些债券可在证券交易所买卖，而有些则只会在场外交易，但并不能保证前者的流动性一定更好。一般而言，后偿、高息及具有其他特色的债券的流动性往往低于投资级别的普通债券，而发行规模较小的债券的流动性也可能会较低。</p>
+        <p>如果您持有的债券交易不活跃，买卖价差将会较大，那么您可能需要以远低于理论价值的价格出售债券，甚至无法卖出债券变现，因此您必须有持有产品直至到期的准备。采取「买入并持有」策略的投资者，其受流动性风险的影响则相对较小。倘若您持有的是可回售债券，而您有意卖出该债券的话，发债机构有责任根据债券条款在可回售日从您手上购回债券。</p>
+      </div>
+      <div class="term">
+        <p><span class="label">d. 通货膨胀风险：</span>投资债券的回报会因物价上涨而使实际购买力受到削弱，因此以债券票息作为定期收入的投资者，必须考虑通货膨胀所带来的影响。此外，通货膨胀上升一般也会推低定息债券的价格，因投资者要求较高的收益率以保持其购买力。然而，通货膨胀对浮息债券的影响则相对较轻，因为未来的付息通常会随着因通货膨胀加剧带来的利率上调而增加。</p>
+      </div>
+      <div class="term">
+        <p><span class="label">e. 再投资风险／提前赎回风险：</span>债券收益率的计算是假设所得的现金流量将被再投资。再投资的额外收益（也称复利）取决于再投资时的市场利率。若现金流的再投资利率下跌，就会带来再投资风险。</p>
+        <p>附有可提前赎回机制的债券，可由发债机构在到期前赎回，因此附带潜在的提前赎回风险。这不仅使未来的现金流量存在不确定性，而且一旦发债机构在利率下跌之际提前赎回债券，投资者可能无法将赎回所得款项再投资于具有相近条款的工具，因此就需承受再投资风险。一般而言，当市场利率下跌，债券被提前赎回的机会就会增加，因发债机构可能以较低利率发行新债来偿付旧债，从而降低利息支出。此外，如提前赎回价低于当时债券的市价，那么投资者就会失去以较高价格在二级市场出售债券的机会。正因为这一原因，此类债券在利率下行环境下的升值潜力可能会较低。</p>
+      </div>
+      <div class="term">
+        <p><span class="label">f. 延长风险／不提前赎回的风险：</span>许多长期债券（包括永续债券）附有提前赎回条款，让发债机构可在预设的提前赎回日行使提前赎回权。如发债机构选择不行使该提前赎回权，期望发债机构提前赎回债券的投资者就会因预期落空而面对延长风险。如债券未被提前赎回，则预期赎回日的延长可能导致债券价格下跌。</p>
+      </div>
+      <div class="term">
+        <p><span class="label">g. 汇率风险：</span>如债券以外币计价，投资者将要面对汇率波动的风险。若投资者将收回的外币本金及利息兑换为本地货币时适逢该外币贬值，就会出现亏损。</p>
+        <p>大部分债券以其本金的货币结算，但也有些以另一种货币结算。例如，倘若债券的本金货币受有关国家的外汇管制所限，不能自由兑换，那么该债券的交易、赎回及票息就可能以另一种可自由兑换的货币结算。基于汇率的变化，现金流量是不确定的。若债券的本金货币相对结算货币贬值，投资者就会蒙受损失。</p>
+        <p>例如，非中国内地（包括香港）的人士若以人民币以外的本地货币投资人民币产品，就需承受汇率风险。因为人民币受到兑换限制及外汇管制，当您打算投资于人民币产品时，就可能需要将您的本地货币兑换为人民币。而当您赎回或售出您的投资时，您可能需要将人民币兑换回本地货币（即使赎回或出售投资的收益是以人民币支付）。在这过程中，您会承担货币兑换成本，也要承受汇率风险。换言之，即使您买卖该人民币产品的价格不变，在货币兑换过程中，如果人民币贬值，您也会有所损失。</p>
+      </div>
+      <div class="term">
+        <p><span class="label">h. 兑换风险：</span>若债券的本金货币不能自由兑换和/或自由流通，就会出现兑换风险。假如有关国家限制将该货币兑换为其他货币，投资者就不得不继续投资于该货币。当该货币面临贬值压力，有关投资的价值也可能会下跌。</p>
+        <p>例如：人民币受到兑换限制及外汇管制，倘若中国实施新的人民币管制，人民币债券的发债机构以人民币偿付的利息及本金可能受到限制，其价值可能会有所变化。离岸人民币债券的持有人应注意，香港离岸人民币外汇市场的流动性仍然较低。如果人民币资金往返内地与香港的限制收紧，香港的人民币市场深度将更加有限，进而对人民币债券的流动性造成不利影响。</p>
+      </div>
+      <div class="term">
+        <p><span class="label">i. 事件风险：</span>指不可预见的事件将对公司或行业产生负面影响，其中可能情形和不确定性很多，无法一一列举，例如（但不限于）：</p>
+        <ol class="sub">
+          <li><span class="tag">i.</span>发债机构进行重组、合并或收购等企业活动，致使其信用评级可能会被下调。此外，若发债机构需发行大量新债以集资进行企业活动，该机构付息及赎回现有债券的能力也会减弱。</li>
+          <li><span class="tag">ii.</span>法律、政策或政治气候变化使发债机构的市场空间收窄或成本增加，削弱其盈利以至还款能力。</li>
+          <li><span class="tag">iii.</span>天灾人祸、工业意外、法律诉讼或罚款／赔偿导致发债机构陷入财政困难，继而引发违约。</li>
+          <li><span class="tag">iv.</span>如果发债机构陷入财政困难，可能要求债权人同意债务重组以避免违约。重组后债务的本金及息率可能会被削减，而还款期也可能被延长。</li>
+        </ol>
+      </div>
+      <div class="risk-extra">
+        <p><span class="label">j. 高息债券的额外风险：</span></p>
+        <ol class="sub">
+          <li><span class="tag">i.</span>高息债券的信用评级低于投资级别，甚至没有任何评级，反映出发债机构的违约风险较高。为更清楚地了解发债机构的前景及违约可能，投资者应查阅发债机构的财务报告，并考虑其业务的基本面因素（例如负债规模、业务收益、营运现金流及净现金流），以及信用风险的来源（例如不确定的融资渠道、脆弱的业务模式、行业产能过剩等）。</li>
+          <li><span class="tag">ii.</span>高息债券较易受经济周期转变的影响，在经济下滑时，高息债券价值的跌幅往往会较投资级别债券大，原因是投资者会因发债机构违约风险及利率波动幅度扩大而趋于避险，导致债券价格波动。</li>
+          <li><span class="tag">iii.</span>高息债券的二级市场流动性往往较低，而买卖价差可以很大，甚至在市场下跌时流动性迅速消失。</li>
+          <li><span class="tag">iv.</span>高息债券的投资者应审慎考虑债券的限制条件。限制条件因债券而异，但投资级别债券及高收益债券有不同的标准限制条件。高息债券的限制条件通常比投资级别债券严格，然而在发行量大且市场上涨期间，投资者可能接受较宽松的限制条件，以换取较高的收益率。虽然单凭具有较强保护效力的限制条件本身不足以作为投资个别债券的理由，但其分析却补充了传统的信用及估值分析，所以投资者应审阅债券契约内的限制条件。</li>
+        </ol>
+      </div>
+      <div class="risk-extra">
+        <p><span class="label">k. 可换股／可转换债券的额外风险：</span></p>
+        <ol class="sub">
+          <li><span class="tag">i.</span>当相关股票的市价接近或高于行使价，意味着可换股／可转换债券被转换为股票的机会较大，因此其价格表现就越会受到相关股价的影响，波动幅度也会较高。</li>
+        </ol>
+      </div>
+      <div class="risk-extra">
+        <p><span class="label">l. 后偿债券、永续债券、或然可转换／自救债券及具有某些特色的债券的额外风险：</span></p>
+        <ol class="sub">
+          <li><span class="tag">i.</span><span class="label">索偿次序：</span>在发债机构一旦清算时，后偿债券持有人的索偿次序会落后于其他较优先的债权人，即投资者只可在其他优先债权人获得清偿后如仍有剩余款项的情况下才获偿付，而所收回的金额（如有）也可能远低于被拖欠款项的总额。大部分或然可转换／自救债券都属于后偿债券。</li>
+          <li><span class="tag">ii.</span><span class="label">到期日及二级市场价格：</span>永续债券没有到期日，其持有人收回资金的唯一途径是在二级市场出售债券（除非发债机构在提前赎回机制下赎回债券），而二级市场价格会受利率、信用评级、流动性等因素影响，在最差的情况下可能没有二级市场，使投资者无法变现。另外有一些债券可推迟到期日，因此偿还本金的确定时间存在不确定性，这可能会影响您的资金周转。</li>
+          <li><span class="tag">iii.</span><span class="label">具有或有减记或吸收损失的特点：</span>当发生触发事件时，或然可转换／自救债券可能会作全部或部分减记，导致投资者损失大部分甚至全部本金；或者被转换为发债机构的股份，而所得股份的价值很可能会远低于债券本金。当投资者出售所得的股份时，可能引发该股的抛售浪潮，进一步推低股价，使投资者损失严重。</li>
+          <li><span class="tag">iv.</span><span class="label">派息：</span>一些债券具有可变的付息条款，例如由定息转为浮息。另外一些特色债券（例如永续债券、或然可转换／自救债券等）可根据发行条款，在某些情况下下调、延迟、暂停或取消支付全部或部分票息，或以股票／新债形式支付票息，例如未能符合监管机构规定的最低资本，或如支付票息将导致违反有关监管规定，或导致需要接受政府援助等。由于永续债券是无限期的，其利息的支付将取决于发债机构的长期实力。</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <div class="pair" id="s6-s7">
+    <section class="block" id="s6">
+      <div class="block-head"><h2><span class="num">6.</span>如何选择债券</h2></div>
+      <div class="block-body">
+        <div class="icon-row">
+          <svg class="icon-bubble" viewBox="0 0 52 52" aria-hidden="true">
+            <circle cx="26" cy="26" r="25" fill="#eef2f9" stroke="#002060" stroke-width="1.5"/>
+            <circle cx="26" cy="26" r="18" fill="none" stroke="#c4a36a" stroke-width="1.2" stroke-dasharray="2.5 2"/>
+            <rect x="17" y="15" width="18" height="22" rx="1.5" fill="#002060"/>
+            <rect x="20" y="19" width="12" height="1.4" fill="#fff"/>
+            <rect x="20" y="23" width="12" height="1.4" fill="#fff"/>
+            <rect x="20" y="27" width="8" height="1.4" fill="#fff"/>
+          </svg>
+        </div>
+        <p>在挑选债券时，投资者首先要选定货币和可接受的信用风险水平。至于债券期限，则可按个人的投资期限（买入并持有的策略），或基于对利率走势的预期做出选择。一般而言，看涨中长期利率者宜选短期或浮息债券；但如果看跌长期利率，则长期的定息债券较具吸引力。</p>
+        <p>收益率并非筛选债券的唯一指标。投资者也应留意债券的信用风险、期限，以及相对零风险投资的风险溢价。例如在美国市场，投资者通常把相对（一般被视为零风险的）国债的利差作为衡量风险溢价的基准。风险溢价不但方便不同债券之间的比较，还可用于衡量个别债券相比零风险债券的额外收益率，是否足以补偿所承担的信用风险。</p>
+      </div>
+    </section>
+
+    <section class="block" id="s7">
+      <div class="block-head"><h2><span class="num">7.</span>投资者的概况与合适性</h2></div>
+      <div class="block-body">
+        <div class="icon-row">
+          <svg class="icon-bubble" viewBox="0 0 52 52" aria-hidden="true">
+            <circle cx="26" cy="26" r="25" fill="#002060"/>
+            <circle cx="26" cy="26" r="14" fill="none" stroke="#fff" stroke-width="1.6"/>
+            <circle cx="26" cy="26" r="8" fill="none" stroke="#fff" stroke-width="1.4"/>
+            <circle cx="26" cy="26" r="2.4" fill="#fff"/>
+            <path d="M26 26 L40 12" stroke="#c4a36a" stroke-width="2.2" stroke-linecap="round"/>
+            <polygon points="40,12 42,20 34,14" fill="#c41e3a"/>
+          </svg>
+        </div>
+        <table class="suit-table">
+          <tbody>
+            <tr>
+              <th>市场观点</th>
+              <td>
+                <ul>
+                  <li>您预期发债机构的信用质量将维持稳健，并且不会违约</li>
+                  <li>定息／零息债券的投资者预期利率将维持稳定或下跌</li>
+                  <li>浮息债券的投资者预期利率将维持稳定或上涨</li>
+                  <li>通胀挂钩债券的投资者预期通货膨胀将维持稳定或加剧</li>
+                  <li>或然可转换／自救债券的投资者预期发债机构将保持资本及流动资产充足，不会发生触发事件</li>
+                  <li>可换股／可转换债券的投资者，预期相关股票会升值</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th>投资期</th>
+              <td>
+                <ul>
+                  <li>您的投资期限与所投资债券的期限相符</li>
+                  <li>附有提前赎回机制债券的投资者愿意接受债券被提前赎回</li>
+                  <li>永续债券的投资者接受债券没有到期日，如市场缺乏流动性而无法卖出债券，您可能要无限期持有债券</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th>预期回报</th>
+              <td>
+                <ul>
+                  <li>可换股／可转换债券：除票息外，投资者还预期可分享相关股票的潜在上涨</li>
+                  <li>其他债券：投资者预期获取稳定的票息收入，并接受债券价格的升值潜力有限</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th>风险承受<br>能力</th>
+              <td>
+                <ul>
+                  <li>您愿意承担上述的全部有关风险，并接受在最差的情况下会损失全部本金</li>
+                  <li>高息或长期债券的投资者愿意承担较高的风险，以获取较高的收益率</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <section class="block legal" id="legal" style="margin-top:1.15rem;">
+    <div class="block-head"><h2>重要事项及免责声明</h2></div>
+    <div class="block-body">
+      <p>本文件仅为此类产品的一般性说明，仅作信息用途，其中的信息并不具有约束力。其应与个别产品的任何相关合约条款书<span class="en">(term sheet)</span>或资料页<span class="en">(fact sheet)</span>一并阅读，以获取产品特色及风险的更详尽披露。此外，请参阅相应的产品文件，例如章程<span class="en">(prospectus)</span>、发行说明书<span class="en">(offering circular)</span>、资料备忘录<span class="en">(information memorandum)</span>等，以进一步了解更多细节和风险考虑【注：上述产品文件可能仅有英文版本】。所有条款及条件仅作为示例提供，而实际条款可能存在差异。所推出的个别产品的基本结构可能有所不同。有关任何个别产品的最终条款及条件将在其有关定价日确定。过往表现并不代表未来的回报。所有图表及示例仅作说明用途。本文件并不构成，也不应被解释为针对任何交易的要约、建议或招揽，也不应被视为投资意见。任何投资或任何其他决定均不应仅基于此材料而做出。</p>
+      <p>本文件的内容未经任何监管机构核准。投资者务必审慎考虑任何产品或要约。假如您对本文件的任何内容有任何疑问，应寻求独立专业意见。</p>
+      <p>本文件由华泰金融控股（香港）有限公司和/或其关联公司（「华泰香港」）发布，仅供华泰香港向其提供本文件的一方使用。华泰香港可不时以本人或代理人身份，就与此文件或任何合约条款书、资料页、资料备忘录、章程、发行说明书、确认书、发行此产品的其他文件或与此交易相关的文件（统称「产品文件」）所涉及的交易的任何相关产品、证券、金融工具、货币或其他资产持仓，或进行买卖或做市活动。华泰香港可能向产品文件所提及的公司提供投资银行及其他服务，和/或有人员担任该等公司的董事。华泰香港已制定政策及程序，以尽量降低高级职员及雇员受任何利益或责任冲突影响的风险，以及机密资料被不当披露或提供的风险。华泰香港可能会就证券交易向第三方支付或收取费用。有关由华泰香港投资银行部或由第三方提供予华泰香港财富管理部的任何发行价折扣或返还，详情请参阅《收费、佣金和销售相关资料披露》文件或由华泰香港财富管理部不时就证券交易提供的其他相关文件。投资者确认华泰香港可能保留该等费用的全部或任何部分。</p>
+      <p>【只对适用产品有关】某些产品（例如结构性产品和衍生工具等）相当复杂，且亏损的风险可能相当高。结构性产品的发行商一般会对自身所承担的结构性交易的风险进行对冲，但也可能选择不对冲或只进行部分对冲。其对冲活动可能通过相关资产、指数、工具，或通过在公开交易市场或其他途径与相关资产、指数或工具相关的期权、期货或其他衍生产品进行，并可能对相关资产的价格产生影响。如交易以现金结算，发行商一般会在接近相关估值时间或时期，将为该交易所作的对冲平仓或冲销，而这些活动可能会影响交易的价值。</p>
+      <p>【只对适用产品有关】投资者应注意，其收取与任何相关交易有关的任何付款（不论是赎回金额、票息或以其他款项）和/或任何证券，均会面临该交易的证券发行商（「发行商」）或交易对手（「交易对手」）的信用风险。投资者需承担发行商／交易对手将无法履行其在此交易项下义务的风险。除另有特别约定外，发行商／交易对手在此交易项下的义务将构成其一般及无抵押合约义务，而该等义务将与发行商／交易对手的所有其他（包括任何日后的）无抵押合约义务具有同等的清偿顺序。假如发行商／交易对手无力偿债，其优先债务相对其无抵押义务（例如此交易）享有优先权。</p>
+      <p>【只对适用产品有关】发行商／交易对手的任何信用评级只反映所引用的评级机构的独立意见，并非发行商／交易对手信用质量的保证。信用评级可在不另行通知的情况下更改，而发行商／交易对手或其关联公司的信用评级被任何评级机构下调，均可能导致产品的价值下跌。</p>
+      <p>在进行交易前，投资者应了解自身的投资目标、财务状况和具体需求，以及相关产品文件所载关于产品的特色与风险。如您认为有需要，应先行咨询您的独立法律、监管、税务、会计及财务顾问，并应根据您自身的判断以及您认为有需要咨询的顾问的意见，做出您对投资、交易和对冲的决定（包括决定本项交易是否适合您）。除另行明确表示同意外，华泰香港不会在任何交易中凭借本文件担任您的财务顾问或受托人。</p>
+      <p>华泰香港不会就投资产品提供任何税务意见。税务处理取决于每位客户的具体情况，因此客户必须自行向可信赖的服务机构寻求针对其自身情况的税务意见。</p>
+      <p>本文件仅作信息用途，并未考虑任何个别读者的特定投资目标、财务状况或特殊需求。本文件并未就其中所述任何产品或投资是否适合任何个别人士的情况作出任何声明或推荐，华泰香港也不会就此承担任何责任。本文件所载资料的准确性、完整性或可靠性，并没有任何明示或暗示的陈述或保证，也无意对其中所提及的主题作详尽或概括性陈述。</p>
+      <p>本文件所载的分析基于大量假设。不同的假设可能导致显著不同的结果。本文件所列明的资料及任何观点均可在不经通知的情况下更改，也可能与华泰香港其他业务领域或团队在使用不同假设和标准的情况下得出的观点有所不同或相反。华泰香港并无义务对本文件所载资料进行更新或修订。</p>
+      <p>任何交易的条款将仅受其有关产品文件所载的详细条款（包括任何风险考虑条款）约束。在适用法律允许的最大范围内，华泰香港及其雇员、代理及代表明确表示，对于有关或因本文件，特别是因以下各项事宜而引起的任何性质的损失、损害、费用或开支，不承担全部或任何责任（不论基于侵权、合同或其他原因）：</p>
+      <ul class="dash">
+        <li>本文件的内容或任何遗漏，包括任何明示或暗示的声明、陈述或结论；</li>
+        <li>向任何人士提供或让任何人士使用本文件或其任何部分；</li>
+        <li>编制本文件所载的资料；及</li>
+        <li>任何人士依赖、披露或使用本文件所载或相关的任何资料或陈述。</li>
+      </ul>
+      <p>华泰香港明确禁止未经华泰香港事先书面许可而再分发或复制本文件，或其全部或任何部分的内容；华泰香港对第三方的任何相关行为概不负责。</p>
+      <p>除产品文件另行明确表示外，截至目前并未，且将来也不会在任何司法管辖区内采取行动，以允许对本文所述的任何证券进行公开发售。所有证券的销售必须符合销售所在地所有适用的销售限制。</p>
+      <p>本文件不得在美国或向美国人士发布。</p>
+      <div class="closers">
+        <p>© 2026 版权由华泰金融控股（香港）有限公司拥有。</p>
+        <p>中文译本仅供参考之用。本文件的中文和英文版本如有任何差异，应以英文版本为准。</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+<footer class="doc-end"></footer>
+</body>
+</html>
